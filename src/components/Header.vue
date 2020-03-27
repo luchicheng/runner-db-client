@@ -3,8 +3,7 @@
     app
     color="primary"
   >
-
-    <v-toolbar fixed color="primary" dark padding=0>
+    <v-toolbar fixed color="primary" dark padding=0 elevation="0">
       <v-avatar
         class="mr-3"
         color="grey lighten-5"
@@ -53,10 +52,14 @@
             </v-list-item>
           </v-list>
         </v-menu>
-        <v-spacer></v-spacer>
+    </v-toolbar>
+    <v-spacer></v-spacer>
+    <v-toolbar fixed color="primary" dark padding=0 elevation="0">
+      <v-layout align-end justify-end>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'login' }"> Login </v-btn>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
         <v-btn v-if="$store.state.isUserLoggedIn" text dark @click="logout"> Log Out </v-btn>
+      </v-layout>
     </v-toolbar>
   </v-app-bar>
 </template>
