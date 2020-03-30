@@ -17,7 +17,22 @@
       </v-avatar>
       <v-toolbar-title class="mr-4">91 Runner DB </v-toolbar-title>
         <v-btn text dark :to="{ name: 'home' }"> Home </v-btn>
-        <v-btn text dark :to="{ name: 'news' }"> News </v-btn>
+        <v-menu open-on-hover close-on-click close-on-content-click offset-y>
+          <template v-slot:activator="{ on }">
+            <v-btn text dark
+              v-on="on"
+            >Medias</v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="(mediaItems, index_medias) in mediaItems"
+              :key="index_medias"
+              @click="goto(mediaItems.name)"
+            >
+              <v-list-item-title>{{ mediaItems.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-btn v-if="$store.state.isUserLoggedIn" text dark :to="{ name: 'runners' }">Runners</v-btn>
         <v-btn v-if="$store.state.isUserLoggedIn" text dark :to="{ name: 'races' }">Races</v-btn>
         <v-menu v-if="$store.state.isUserLoggedIn" open-on-hover close-on-click close-on-content-click offset-y>
@@ -28,8 +43,8 @@
           </template>
           <v-list>
             <v-list-item
-              v-for="(recordItem, index) in recordItems"
-              :key="index"
+              v-for="(recordItem, index_records) in recordItems"
+              :key="index_records"
               @click="goto(recordItem.name)"
             >
               <v-list-item-title>{{ recordItem.title }}</v-list-item-title>
@@ -44,8 +59,8 @@
           </template>
           <v-list>
             <v-list-item
-              v-for="(topItem, index2) in topItems"
-              :key="index2"
+              v-for="(topItem, index_tops) in topItems"
+              :key="index_tops"
               @click="goto(topItem.name)"
             >
               <v-list-item-title>{{ topItem.title }}</v-list-item-title>
@@ -67,6 +82,11 @@
 <script>
 export default {
   data: () => ({
+    mediaItems: [
+      { title: 'NewsLetter', name: 'newsLetter' },
+      { title: 'Albums', name: 'albums' },
+      { title: 'Videos', name: 'videos' }
+    ],
     recordItems: [
       { title: 'Trainings', name: 'searchTrainingRecords' },
       { title: 'Races', name: 'searchRaceRecords' }

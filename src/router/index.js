@@ -9,7 +9,10 @@ import EditSong from '@/components/EditSong'
 import ViewSong from '@/components/ViewSong/Index'
 import Runners from '@/components/Runners/Index'
 import Races from '@/components/Races/Index'
-import News from '@/components/News/Index'
+import NewsLetter from '@/components/NewsLetter/Index'
+import Albums from '@/components/Albums/Index'
+import AlbumsDetailPhoto from '@/components/Albums/AlbumsDetailPhoto'
+import AlbumsDetail from '@/components/Albums/AlbumsDetail'
 import RunnerTrainingRecord from '@/components/RunnerTrainingRecords/Index'
 import RunnerRaceRecord from '@/components/RunnerRaceRecords/Index'
 import SearchTrainingRecords from '@/components/SearchTrainingRecords/Index'
@@ -32,7 +35,10 @@ export default new Router({
     { path: '/runners/:runnerId/race', name: 'runner-race', component: RunnerRaceRecord },
     { path: '/runners', name: 'runners', component: Runners },
     { path: '/races', name: 'races', component: Races },
-    { path: '/news', name: 'news', component: News },
+    { path: '/newsLetter', name: 'newsLetter', component: NewsLetter },
+    { path: '/albums', name: 'albums', component: Albums },
+    { path: '/albums/:albumId', name: 'albumsDetail', component: AlbumsDetail },
+    { path: '/photos/:photoId', name: 'albumsDetailPhoto', component: AlbumsDetailPhoto },
     { path: '/topRaceRecordsCY', name: 'topRaceRecordsCY', component: TopRaceRecordsCY },
     { path: '/topRaceRecordsAY', name: 'topRaceRecordsAY', component: TopRaceRecordsAY },
     { path: '/data/trainingRecords', name: 'searchTrainingRecords', component: SearchTrainingRecords },

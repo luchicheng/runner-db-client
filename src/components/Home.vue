@@ -108,7 +108,7 @@
     <section id="stats">
       <v-parallax
         :height="$vuetify.breakpoint.smAndDown ? 700 : 500"
-        src="https://lh3.googleusercontent.com/AHan9i9TwNxt-C8EfXhepn-pIy9w1QYvwhv_0brOJZSHsh-35Vj7_7eRQ-U1XaXMudw6p8UhPK7DukmmsVIYHcuMAYClvV6MOEO_iAlh7TEkAQS1nsQKRn9yhikSsjfJP0PBKRS0Rw=w1288-h943-no"
+        src="https://images.unsplash.com/photo-1585537647937-6797d374276a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=50"
       >
         <v-container fill-height>
           <v-row class="mx-auto">
@@ -138,8 +138,7 @@
 
         <v-row>
           <v-col v-for="({ src, text, title }, i) in articles" :key="i" cols="12" md="3">
-            <v-img :src="src" class="mb-3" height="275" max-width="100%"></v-img>
-
+            <v-img :src="getImgUrl(src)" class="mb-3" height="275" max-width="100%"></v-img>
             <h3 class="font-weight-black mb-4 text-uppercase" v-text="title"></h3>
 
             <div class="title font-weight-light mb-5" v-text="text"></div>
@@ -200,29 +199,29 @@ export default {
       articles: [
         {
           src:
-            'https://lh3.googleusercontent.com/_dypA1vKpbiUPhhoZYOc3ARzkIr71HuMi3dsSiRUyGjymluE0u5C1_sOA9IjH8ggA3EtG9gh6V639hcUHU-TZVciU831cc8SGrzuXBMFj-jfg1K-kr9XIeuGHUIkqShTsXeUALdWS_mbZReS33cI4e6BZO90ZDvTixoTzs3-KV2GcXhPnC4c6sUycWQSk1_oaEwPGzO8iOhd8HKpk6fc0wY7RgSWQQViv6bx49XmJyiSad0NhI0dBl_YLt6pEJo1z8v8UqLYPfs9vTEw1FqXC1iQUPdZ8Ru8ZrMyhzJxYpEy3IkWKmibjg3Y_RmO_BMJqRCK0TAaN25HmZaCB_wnlUoOB-d9JZI_rxapdP1rK7faKwKQKrzaI0q1xk_xH6N2xuxH8CPkojpyrff0uflntRkapDrj7Hy942q0V8KaBV-wf4e8fQ5_36I2zOhl5Wl4EVf4h0nH9W-BIstCr0IO2DNF7uLJAcF8bZg_ffI5kr_k4zp4VVCX2EsmuSPHJz5TBfbnHjB-2xx6fVuqEUj5MXg232wEMckNpWSk235dPVxNhpyzIKI1Thll3UBeTvpait5_N0Ele-80isvtBP0XN7r5UfIZiGU0r3e19Td_i6D71rhM4q3OwHZ9PPErt49-_MpICII_x9B4LVm9ve4TIIO8w-qsbhVw6l8-6fDRF1tHVeSrpvj91UpKK8eA0L2fEEkYbURngcd9OgtaBGwYfgCxWFfUQCsZz3sKgbxhuGJ5X93pufsKhg=w1442-h954-no',
+            'sm_training.jpg',
           title: '科学训练',
           text:
             'Phasellus lorem enim, luctus ut velit eget, convallis egestas eros. Sed ornare ligula eget tortor tempor, quis porta tellus dictum.'
         },
         {
           src:
-            'https://lh3.googleusercontent.com/UHLBnexCCQZque-DYSUn_mX_hVi7atP1tYNpJR0Tb9_ID-Qn-3HuqWSsO0RPYOh1wvhWvV4EOIzFwDdZ1ccPbOJETot0-d-n_fqpemgGlzgoQaat8hTfbhVZv3rur01VBFXzKOjnsQ=w1300-h943-no',
+            'sm_challenge.jpg',
           title: '突破自我',
           text:
             'Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh.'
         },
         {
           src:
-            'https://lh3.googleusercontent.com/hiiQNIUkNfPRczMzX2HOzDUw2FYnBCB4fZJtGxge_pmZAoXQ3MmuRc-PtauBfGJYn-r2ry0PzYkkXnUBW0_QlF2-KdoCJIKgBJFrH1wSKrFqSziYWv9wOF6fGdAtmUulpdCpcX0k5A=w1358-h943-no',
+            'sm_running.jpg',
           title: '跑步修行',
           text:
             'Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.'
         },
         {
           src:
-            'https://images.unsplash.com/photo-1585280665698-83b32722f80c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80',
-          title: '更好生活',
+            'sm_living.jpg',
+          title: '快乐生活',
           text:
             'Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.'
         }
@@ -253,6 +252,11 @@ export default {
         ['25+', 'Races and Supports'],
         ['30+', 'BQ starts']
       ]
+    }
+  },
+  methods: {
+    getImgUrl (pic) {
+      return require('../assets/' + pic)
     }
   }
 }
