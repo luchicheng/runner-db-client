@@ -1,20 +1,20 @@
 <template>
   <panel title="Search Album">
-    <v-text-field
-      label="Search by name, description or comment"
-      v-model="search"
-    ></v-text-field>
+    <v-text-field label="Search by name, description or comment" v-model="search"></v-text-field>
   </panel>
 </template>
 
 <script>
 import _ from 'lodash'
+// import AlbumsService from '@/services/AlbumsService'
 
 export default {
   data () {
     return {
       search: ''
     }
+  },
+  methods: {
   },
   watch: {
     search: _.debounce(async function (value) {
@@ -39,5 +39,4 @@ export default {
 </script>
 
 <style>
-
 </style>

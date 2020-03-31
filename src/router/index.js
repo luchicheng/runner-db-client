@@ -37,7 +37,7 @@ export default new Router({
     { path: '/races', name: 'races', component: Races },
     { path: '/newsLetter', name: 'newsLetter', component: NewsLetter },
     { path: '/albums', name: 'albums', component: Albums },
-    { path: '/albums/:albumId', name: 'albumsDetail', component: AlbumsDetail },
+    { path: '/albums/:albumGid', name: 'albumsDetail', component: AlbumsDetail },
     { path: '/photos/:photoId', name: 'albumsDetailPhoto', component: AlbumsDetailPhoto },
     { path: '/topRaceRecordsCY', name: 'topRaceRecordsCY', component: TopRaceRecordsCY },
     { path: '/topRaceRecordsAY', name: 'topRaceRecordsAY', component: TopRaceRecordsAY },

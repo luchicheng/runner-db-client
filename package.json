@@ -18,6 +18,7 @@
     "axios": "^0.19.2",
     "lodash": "^4.17.15",
     "vue": "^2.5.2",
+    "vue-cool-lightbox": "^1.1.0",
     "vue-router": "^3.0.1",
     "vue-youtube-embed": "^2.2.2",
     "vuetify": "^2.2.18",

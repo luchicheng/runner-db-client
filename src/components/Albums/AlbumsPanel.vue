@@ -18,14 +18,49 @@
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="700px">
               <template v-slot:activator="{ on }">
-                <v-btn color="primary" dark class="mb-2" href="http://localhost:8082" target="_blank">Import Album</v-btn>
+                <v-btn color="primary" dark class="mb-2" v-on="on">New Album</v-btn>
               </template>
+              <v-form
+                ref="form"
+                v-model="valid"
+              >
+                <v-card>
+                  <v-card-title>
+                    <span class="headline">{{ formTitle }}</span>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field ref="name" v-model="editedItem.name"
+                            required
+                            :rules="[ v => !!v || 'This field is required']"
+                            label="Album name"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="12" md="8">
+                          <v-text-field ref="desc" v-model="editedItem.gid" label="https://photos.app.goo.gl/[:GID]"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field ref="comment" v-model="editedItem.comment" label="Comment"></v-text-field>
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
+                    <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-form>
             </v-dialog>
           </v-toolbar>
         </template>
         <template v-slot:item.actions="{ item }">
           <v-icon
             small
+            v-if="$store.state.isUserLoggedIn"
             class="mr-2"
             @click="editItem(item)"
           >
@@ -33,6 +68,7 @@
           </v-icon>
           <v-icon
             small
+            v-if="$store.state.isUserLoggedIn"
             class="mr-2"
             @click="deleteItem(item)"
           >
@@ -65,31 +101,9 @@ export default {
       albums: [],
       dialog: false,
       editedIndex: -1,
-      menu: false,
-      editedItem: {
-        name: '',
-        year: '',
-        dor: '',
-        distance: '',
-        wmm: '',
-        bq: '',
-        desc: '',
-        comment: ''
-      },
-      defaultItem: {
-        name: '',
-        year: '',
-        dor: '',
-        distance: '',
-        wmm: '',
-        bq: '',
-        desc: '',
-        comment: ''
-      },
-      errorMessages: '',
-      // required: (value) => !!value || 'Required.'
-      formHasErrors: false
-
+      editedItem: {},
+      defaultItem: {},
+      valid: false
     }
   },
   computed: {
@@ -98,9 +112,6 @@ export default {
     }
   },
   watch: {
-    menu (val) {
-      val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
-    },
     dialog (val) {
       val || this.close()
     },
@@ -109,9 +120,6 @@ export default {
       async handler (value) {
         this.albums = (await AlbumsService.index(value)).data
       }
-    },
-    name () {
-      this.errorMessages = ''
     }
   },
   methods: {
@@ -135,7 +143,7 @@ export default {
       this.$router.push({
         name: 'albumsDetail',
         params: {
-          albumId: item.id,
+          albumGid: item.gid,
           albumName: item.name
         }
       })
@@ -143,9 +151,6 @@ export default {
 
     close () {
       console.log('close method clicked.......')
-      this.errorMessages = []
-      this.formHasErrors = false
-
       this.dialog = false
       setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem)
@@ -154,44 +159,24 @@ export default {
     },
 
     async save () {
-      this.formHasErrors = false
-      // Object.keys(this.editedItem).forEach(f => {
-      //   console.log(f, this.$refs[f])
-      // })
-      Object.keys(this.editedItem).forEach(f => {
-        // console.log(f, this.formHasErrors)
-        if (f !== 'id' && f !== 'dor' && f !== 'createdAt' && f !== 'updatedAt') {
-          if (!this.$refs[f].validate(true)) {
-            this.formHasErrors = true
-          }
+      this.$refs.form.validate()
+      if (this.valid) {
+        try {
+          await AlbumsService.post(this.editedItem)
+        } catch (err) {
+          console.log(err)
+          alert(err)
+          return
         }
-        // console.log(f, this.formHasErrors)
-      })
 
-      if (this.formHasErrors) {
-        console.log('Please fill in all the required fields.')
-        return
+        if (this.editedIndex && this.editedIndex > -1) {
+          Object.assign(this.albums[this.editedIndex], this.editedItem)
+        } else {
+          this.albums.push(this.editedItem)
+        }
+        console.log(10)
+        this.close()
       }
-
-      try {
-        console.log(7)
-        await AlbumsService.post(this.editedItem)
-        console.log(8)
-      } catch (err) {
-        console.log(err)
-        alert(err)
-        return
-      }
-
-      console.log(9)
-
-      if (this.editedIndex && this.editedIndex > -1) {
-        Object.assign(this.albums[this.editedIndex], this.editedItem)
-      } else {
-        this.albums.push(this.editedItem)
-      }
-      console.log(10)
-      this.close()
     }
   }
 }
