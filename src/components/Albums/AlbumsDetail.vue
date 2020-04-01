@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <v-layout >
     <CoolLightBox
       :items="items"
       :index="index"
       loop
       @close="index = null">
     </CoolLightBox>
-    <div class="images-wrapper">
+    <div class="row wrap align-center">
       <div class="image"
         v-for="(image, imageIndex) in items"
         :key="imageIndex"
@@ -14,7 +14,7 @@
         :style='{ backgroundImage: "url(" + image.src + ")", }'
       ></div>
     </div>
-  </div>
+  </v-layout>
 </template>
 
 <script>
@@ -84,6 +84,7 @@ export default {
   background-color: red;
   background-position: center;
   background-size: cover;
+  margin: 5px;
 }
 
 body,

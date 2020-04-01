@@ -15,6 +15,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "axios": "^0.19.2",
     "lodash": "^4.17.15",
     "vue": "^2.5.2",

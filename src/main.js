@@ -10,6 +10,8 @@ import store from '@/store/store'
 import VueYouTubeEmbed from 'vue-youtube-embed'
 import Panel from '@/components/globals/Panel'
 // import MyUtils from '@/services/MyUtils'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 Vue.config.productionTip = false
 
@@ -23,6 +25,9 @@ sync(store, router)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  created () {
+    AOS.init({ disable: 'phone' })
+  },
   router,
   store,
   template: '<App/>',

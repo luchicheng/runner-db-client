@@ -12,7 +12,7 @@
         <v-img
           contain
           max-height="70%"
-          :src="require('@/assets/91logo_lightblue.png')"
+          :src="require('@/assets/logo.png')"
         ></v-img>
       </v-avatar>
       <v-toolbar-title class="mr-4">91 Runner DB </v-toolbar-title>
