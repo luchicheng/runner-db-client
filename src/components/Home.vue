@@ -64,7 +64,9 @@
         <div></div>
 
         <v-btn color="grey" href outlined large>
-          <span class="grey--text text--darken-1 font-weight-bold">我们的公众号</span>
+          <span class="grey--text text--darken-1 font-weight-bold"
+            @click="$vuetify.goTo('#contact-us')"
+            >公众号</span>
         </v-btn>
       </v-container>
 
@@ -151,45 +153,12 @@
       <div class="py-12"></div>
     </section>
 
-    <v-sheet id="contact" color="#333333" dark tag="section" tile>
-      <div class="py-12"></div>
-
-      <v-container>
-        <h2 class="display-2 font-weight-bold mb-3 text-uppercase text-center">Contact Us</h2>
-
-        <v-responsive class="mx-auto mb-12" width="56">
-          <v-divider class="mb-1"></v-divider>
-
-          <v-divider></v-divider>
-        </v-responsive>
-
-        <v-theme-provider light>
-          <v-row>
-            <v-col cols="12">
-              <v-text-field flat label="Name*" solo></v-text-field>
-            </v-col>
-
-            <v-col cols="12">
-              <v-text-field flat label="Email*" solo></v-text-field>
-            </v-col>
-
-            <v-col cols="12">
-              <v-text-field flat label="Subject*" solo></v-text-field>
-            </v-col>
-
-            <v-col cols="12">
-              <v-textarea flat label="Message*" solo></v-textarea>
-            </v-col>
-
-            <v-col class="mx-auto" cols="auto">
-              <v-btn color="accent" x-large>Submit</v-btn>
-            </v-col>
-          </v-row>
-        </v-theme-provider>
+    <section id="contact-us">
+      <v-container class="text-center">
+        <h2 class="display-1 mb-3 text-uppercase text-center">Contact Us</h2>
+        <v-img :src="require('@/assets/wechat2.png')" width="200"></v-img>
       </v-container>
-
-      <div class="py-12"></div>
-    </v-sheet>
+    </section>
   </v-content>
 </template>
 <script>
@@ -202,48 +171,48 @@ export default {
             'sm_training.jpg',
           title: '科学训练',
           text:
-            'Phasellus lorem enim, luctus ut velit eget, convallis egestas eros. Sed ornare ligula eget tortor tempor, quis porta tellus dictum.'
+            '集训营发扬公益奉献精神，拥有一批跑而优则教的优秀马拉松训练实践者，以每年两期培训的方式，以Advanced Marathoning为基础，融汇亚索800, 汉森等方法。它帮助从初学者到 Sub3 的老兵们提供科学而有针对性训练计划，有组织的的训练及训练指导，帮助跑者实现梦想。'
         },
         {
           src:
             'sm_challenge.jpg',
           title: '突破自我',
           text:
-            'Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh.'
+            '集训营见证了一群热爱跑步并勇于尝试的跑者。他们在两到三年的时间里不断突破自我，实现马拉松大满贯的梦想。他们的故事都能成为你我的故事。集训营帮助每个在马拉松旅途上的走的更远。'
         },
         {
           src:
             'sm_running.jpg',
           title: '跑步修行',
           text:
-            'Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.'
+            '跑步除了增强体魄，也让在坚持和动摇间成长，让我们更了解自己。跑步无关快慢，假以时日，它让我们遇见更好的自己。'
         },
         {
           src:
             'sm_living.jpg',
           title: '快乐生活',
           text:
-            'Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget.'
+            '集训营不仅是一个跑马训练的社区，也是一群拥有同样爱好的跑者的交流平台。跑者们相互鼓励和帮助，积极参与公益活动，感染并鼓舞着身边的朋友和亲人 -- 积极并快乐的生活。'
         }
       ],
       features: [
         {
           icon: 'mdi-account-group-outline',
-          title: '成立时间',
+          title: '里程碑',
           text:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam'
+            '91 running camp, "91集训营"成立于2017年9月1日，并与18年10月正式注册成为非盈利组织、 会员服务，组织管理走入正规化。截止2019年底，正式会员超过150人。'
         },
         {
           icon: 'mdi-update',
           title: '发起者',
           text:
-            'Sed ut elementum justo. Suspendisse non justo enim. Vestibulum cursus mauris dui, a luctus ex blandit. Lorem ipsum dolor sit amet consectetur adipisicing elit. qui ipsum eveniet facilis obcaecati corrupti consectetur adipisicing elit.'
+            '创始人全马六星跑者 - Rico Weng; 荣誉会长“白马女神” - 陈静'
         },
         {
           icon: 'mdi-shield-outline',
           title: '发源',
           text:
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto cupiditate sint possimus quidem atque harum excepturi nemo velit tempora! Enim inventore fuga, qui ipsum eveniet facilis obcaecati corrupti asperiores nam'
+            '2017年的6月，Rico迎来了这样的一个契机。 在一次小聚中，白马女神陈静提议为什么不组织一个群分享你的跑步经验用你的能力去帮助更多的跑者? 7月份也是在美丽径公园， Rico和其他25人独创 26 miles接力跑给陈静姐姐送行。之后剩下了很多物质，当时还在筹划的Rico总教头便继续周末在美丽径公园设置水站提供大家这些物质。91集训营 便有了最初的雏形。'
         }
       ],
       stats: [

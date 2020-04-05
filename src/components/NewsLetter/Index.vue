@@ -62,7 +62,7 @@ export default {
         },
         {
           title: '搞定纽约—2019纽马赛记篇',
-          urlToImage: 'https://mmbiz.qpic.cn/mmbiz_jpg/m8icr2GSLUmY8GHVcBklZJibzXG04OVWibX8MP8BGqbCNI9qiapW26Q0Uv1q6SXGHKaBr3hPMszABbMcemickWzKKwQ/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1',
+          urlToImage: 'https://www.heatsheets.com/wp-content/uploads/2016/11/new-york-marathon.png',
           description: '关于纽约，有句名言："If you can make it here, you can make it anywhere"。我把它翻译成：“搞定纽约，就能搞定全世界”。这个当然不仅针对纽约马拉松。因为纽约作为首屈一指的全球城市，其“霸气”几乎无与比肩。但这句话尤其经常被跑马者引用。因为虽然纽马历史不算太长（明年50周年），但在全球六大马拉松大满贯赛事当中，纽马是参赛者和围观者人数最多的，今年有53636多名参赛者，据说是全世界有史以来参赛人数最多的马拉松，而且围观者每年也都在200万以上。以“五大桥，五大区”（Five Bridges, Five Boroughs）著称的纽马赛道，也几乎是大满贯赛事中最虐的，大家普遍认为至少跟波马一样难跑。相比之下，其它四个（芝加哥、伦敦、柏林、东京）就容易多了。',
           sourceName: '张军 & 91编辑部',
           url: 'https://mp.weixin.qq.com/s/6toLkcNDv0CGcs6V549Hog'

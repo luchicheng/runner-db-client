@@ -7,9 +7,10 @@
             v-for="icon in icons"
             :key="icon"
             class="mx-4 white--text"
+            v-bind:href="icon.url" target="_blank"
             icon
           >
-            <v-icon size="24px">{{ icon }}</v-icon>
+            <v-icon size="24px">{{ icon.name }}</v-icon>
           </v-btn>
         </v-card-text>
       </v-flex>
@@ -24,11 +25,9 @@
 export default {
   data: () => ({
     icons: [
-      'fab fa-facebook',
-      'fab fa-twitter',
-      'fab fa-google-plus',
-      'fab fa-linkedin',
-      'fab fa-instagram'
+      {name: 'fab fa-facebook', url: 'https://www.facebook.com/groups/413792679085011/'},
+      {name: 'mdi-strava', url: 'https://www.strava.com/clubs/91RunningCAMP'},
+      {name: 'mdi-wechat', url: 'https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzU5MjU3MjUwMw==&scene=124#wechat_redirect'}
     ]
   })
 }

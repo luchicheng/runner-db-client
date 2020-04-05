@@ -10,6 +10,7 @@ import ViewSong from '@/components/ViewSong/Index'
 import Runners from '@/components/Runners/Index'
 import Races from '@/components/Races/Index'
 import NewsLetter from '@/components/NewsLetter/Index'
+import Videos from '@/components/Videos/Index'
 import Albums from '@/components/Albums/Index'
 import AlbumsDetailPhoto from '@/components/Albums/AlbumsDetailPhoto'
 import AlbumsDetail from '@/components/Albums/AlbumsDetail'
@@ -36,6 +37,7 @@ export default new Router({
     { path: '/runners', name: 'runners', component: Runners },
     { path: '/races', name: 'races', component: Races },
     { path: '/newsLetter', name: 'newsLetter', component: NewsLetter },
+    { path: '/videos', name: 'videos', component: Videos },
     { path: '/albums', name: 'albums', component: Albums },
     { path: '/albums/:albumGid', name: 'albumsDetail', component: AlbumsDetail },
     { path: '/photos/:photoId', name: 'albumsDetailPhoto', component: AlbumsDetailPhoto },

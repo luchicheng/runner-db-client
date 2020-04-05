@@ -4,50 +4,43 @@
     color="primary"
   >
     <v-toolbar fixed color="primary" dark padding=0 elevation="0">
-      <v-avatar
-        class="mr-3"
-        color="grey lighten-5"
-        size="60"
+      <v-div class="mt-1"
       >
-        <v-img
-          contain
-          max-height="70%"
-          :src="require('@/assets/logo.png')"
+        <v-img contain width="200px" class="mr-3 ml-3 mt-1 mb-1"
+          :src="require('@/assets/logo1_white.png')"
         ></v-img>
-      </v-avatar>
-      <v-toolbar-title class="mr-4">91 Runner DB </v-toolbar-title>
+      </v-div>
+      <v-toolbar-title class="ml-2 mr-2"></v-toolbar-title>
         <v-btn text dark :to="{ name: 'home' }"> Home </v-btn>
         <v-menu open-on-hover close-on-click close-on-content-click offset-y>
           <template v-slot:activator="{ on }">
             <v-btn text dark
               v-on="on"
-            >Medias</v-btn>
+            >Blogs</v-btn>
           </template>
           <v-list>
             <v-list-item
-              v-for="(mediaItems, index_medias) in mediaItems"
-              :key="index_medias"
-              @click="goto(mediaItems.name)"
+              v-for="(blogItems, index_blogs) in blogItems"
+              :key="index_blogs"
+              @click="goto(blogItems.name)"
             >
-              <v-list-item-title>{{ mediaItems.title }}</v-list-item-title>
+              <v-list-item-title>{{ blogItems.title }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
-        <v-btn v-if="$store.state.isUserLoggedIn" text dark :to="{ name: 'runners' }">Runners</v-btn>
-        <v-btn v-if="$store.state.isUserLoggedIn" text dark :to="{ name: 'races' }">Races</v-btn>
         <v-menu v-if="$store.state.isUserLoggedIn" open-on-hover close-on-click close-on-content-click offset-y>
           <template v-slot:activator="{ on }">
             <v-btn text dark
               v-on="on"
-            >Records</v-btn>
+            >Data</v-btn>
           </template>
           <v-list>
             <v-list-item
-              v-for="(recordItem, index_records) in recordItems"
-              :key="index_records"
-              @click="goto(recordItem.name)"
+              v-for="(dataItem, index_data) in dataItems"
+              :key="index_data"
+              @click="goto(dataItem.name)"
             >
-              <v-list-item-title>{{ recordItem.title }}</v-list-item-title>
+              <v-list-item-title>{{ dataItem.title }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
@@ -55,7 +48,7 @@
           <template v-slot:activator="{ on }">
             <v-btn text dark
               v-on="on"
-            >Tops</v-btn>
+            >Records</v-btn>
           </template>
           <v-list>
             <v-list-item
@@ -72,7 +65,7 @@
     <v-toolbar fixed color="primary" dark padding=0 elevation="0">
       <v-layout align-end justify-end>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'login' }"> Login </v-btn>
-        <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
+        <v-btn v-if="false" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
         <v-btn v-if="$store.state.isUserLoggedIn" text dark @click="logout"> Log Out </v-btn>
       </v-layout>
     </v-toolbar>
@@ -82,14 +75,18 @@
 <script>
 export default {
   data: () => ({
-    mediaItems: [
-      { title: 'NewsLetter', name: 'newsLetter' },
-      { title: 'Albums', name: 'albums' },
+    blogItems: [
+      { title: 'Races', name: 'newsLetter' },
+      // { title: 'Training', name: 'blog_training' },
+      // { title: 'Club', name: 'blog_club' },
+      { title: 'PhotoAlbums', name: 'albums' },
       { title: 'Videos', name: 'videos' }
     ],
-    recordItems: [
-      { title: 'Trainings', name: 'searchTrainingRecords' },
-      { title: 'Races', name: 'searchRaceRecords' }
+    dataItems: [
+      { title: 'Runners', name: 'runners' },
+      { title: 'Races', name: 'races' },
+      { title: 'TrainingData', name: 'searchTrainingRecords' },
+      { title: 'RaceData', name: 'searchRaceRecords' }
     ],
     topItems: [
       { title: 'Current Year', name: 'topRaceRecordsCY' },
