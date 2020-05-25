@@ -12,6 +12,7 @@
           >
             <v-icon size="24px">{{ icon.name }}</v-icon>
           </v-btn>
+          <v-btn color='blue darken-4' :to="{ name: 'sponsor' }"> Sponsorship </v-btn>
         </v-card-text>
       </v-flex>
       <v-flex color="primary" dark py-3 text-xs-center white--text xs12>

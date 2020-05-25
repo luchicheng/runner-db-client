@@ -20,6 +20,7 @@ import SearchTrainingRecords from '@/components/SearchTrainingRecords/Index'
 import SearchRaceRecords from '@/components/SearchRaceRecords/Index'
 import TopRaceRecordsCY from '@/components/TopPerformance/TopRaceRecordsCY'
 import TopRaceRecordsAY from '@/components/TopPerformance/TopRaceRecordsAY'
+import Sponsor from '@/components/Sponsor/Index'
 
 Vue.use(Router)
 
@@ -37,6 +38,7 @@ export default new Router({
     { path: '/runners', name: 'runners', component: Runners },
     { path: '/races', name: 'races', component: Races },
     { path: '/newsLetter', name: 'newsLetter', component: NewsLetter },
+    { path: '/sponsor', name: 'sponsor', component: Sponsor },
     { path: '/videos', name: 'videos', component: Videos },
     { path: '/albums', name: 'albums', component: Albums },
     { path: '/albums/:albumGid', name: 'albumsDetail', component: AlbumsDetail },
