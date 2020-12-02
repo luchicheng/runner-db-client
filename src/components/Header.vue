@@ -104,7 +104,7 @@
               <v-list-tile-action>
                 <v-icon>{{ subItem.action }}</v-icon>
               </v-list-tile-action>
-              </br>
+              <br>
             </v-list-tile>
           </v-list-group>
         </v-list>
