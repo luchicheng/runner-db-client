@@ -4,13 +4,15 @@
     color="primary"
   >
     <v-toolbar fixed color="primary" dark padding=0 elevation="0">
-      <v-div class="mt-1"
-      >
-        <v-img contain width="200px" class="mr-3 ml-3 mt-1 mb-1"
+      <v-div class="mt-1">
+        <v-img contain width="200px" class="mr-3 ml-3 mt-1 mb-1 hidden-sm-and-down"
           :src="require('@/assets/logo1_white.png')"
         ></v-img>
+        <v-img contain width="65px" class="mr-3 ml-3 mt-1 mb-1 hidden-md-and-up"
+          :src="require('@/assets/small_logo_white.png')"
+        ></v-img>
       </v-div>
-      <v-toolbar-title class="ml-2 mr-2"></v-toolbar-title>
+      <v-toolbar-items class="hidden-sm-and-down">
         <v-btn text dark :to="{ name: 'home' }"> Home </v-btn>
         <v-menu open-on-hover close-on-click close-on-content-click offset-y>
           <template v-slot:activator="{ on }">
@@ -60,21 +62,62 @@
             </v-list-item>
           </v-list>
         </v-menu>
-    </v-toolbar>
-    <v-spacer></v-spacer>
-    <v-toolbar fixed color="primary" dark padding=0 elevation="0">
-      <v-layout align-end justify-end>
+        <v-spacer></v-spacer>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'login' }"> Login </v-btn>
         <v-btn v-if="false" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
         <v-btn v-if="$store.state.isUserLoggedIn" text dark @click="logout"> Log Out </v-btn>
-      </v-layout>
+      </v-toolbar-items>
+      <v-menu :close-on-content-click="false" open-on-hover bottom offset-y>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn
+            dark
+            icon
+            v-bind="attrs"
+            v-on="on"
+          >
+            <v-icon>mdi-menu</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-group
+            v-for="item in displayedMenus"
+            :key="item.title"
+            v-model="item.active"
+            @click="goto(item.name)"
+            no-action
+          >
+            <template v-slot:activator>
+              <v-list-tile>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+            </template>
+            <v-list-tile
+              v-for="subItem in item.items"
+              :key="subItem.title"
+              @click="goto(subItem.name)"
+            >
+              <v-list-tile-content>
+                <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
+              </v-list-tile-content>
+              <v-list-tile-action>
+                <v-icon>{{ subItem.action }}</v-icon>
+              </v-list-tile-action>
+              </br>
+            </v-list-tile>
+          </v-list-group>
+        </v-list>
+      </v-menu>
     </v-toolbar>
   </v-app-bar>
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
   data: () => ({
+    // isUserLogin: this.$store.state.isUserLoggedIn,
     blogItems: [
       { title: 'Races', name: 'newsLetter' },
       // { title: 'Training', name: 'blog_training' },
@@ -91,8 +134,87 @@ export default {
     topItems: [
       { title: 'Current Year', name: 'topRaceRecordsCY' },
       { title: 'All Years', name: 'topRaceRecordsAY' }
+    ],
+    items: [
+      {
+        action: 'home',
+        title: 'HOME',
+        active: true,
+        enabled: true,
+        login_required: false,
+        name: 'home'
+      },
+      {
+        action: 'blogs',
+        title: 'BLOGS',
+        active: false,
+        enabled: true,
+        login_required: false,
+        items: [
+          { title: 'Races', name: 'newsLetter', enabled: true },
+          { title: 'PhotoAlbums', name: 'albums', enabled: true },
+          { title: 'Videos', name: 'videos', enabled: true },
+          { title: 'DISABLED', name: 'DISABLED', enabled: false }
+        ]
+      },
+      {
+        action: 'disabled',
+        title: 'DISABLED',
+        active: false,
+        enabled: false,
+        login_required: false,
+        name: ''
+      },
+      {
+        action: 'data',
+        title: 'Data',
+        active: false,
+        enabled: true,
+        login_required: true,
+        items: [
+          { title: 'Runners', name: 'runners', enabled: true },
+          { title: 'Races', name: 'races', enabled: true },
+          { title: 'TrainingData', name: 'searchTrainingRecords', enabled: true },
+          { title: 'RaceData', name: 'searchRaceRecords', enabled: true }
+        ]
+      },
+      {
+        action: 'top',
+        title: 'TOP',
+        active: false,
+        enabled: true,
+        login_required: false,
+        items: [
+          { title: 'Current Year', name: 'topRaceRecordsCY', enabled: true },
+          { title: 'All Years', name: 'topRaceRecordsAY', enabled: true }
+        ]
+      }
     ]
   }),
+  computed: {
+    displayedMenus: function () {
+      const isUserLogin = this.$store.state.isUserLoggedIn
+      // console.log('***************begin' + isUserLogin)
+      // console.log(this.items)
+      // console.log('*********************end')
+      // var r = _.pickBy(this.items, function (i) {
+      var r = this.items.filter(function (i) {
+        return (i.enabled && (!i.login_required || isUserLogin))
+      })
+      // console.log('***************begin r1')
+      // console.log(r)
+      // console.log('*********************end r1')
+      r.forEach((obj, objIdx) => {
+        obj.items = _.pickBy(obj.items, function (i) {
+          return (i.enabled && (!i.login_required || isUserLogin))
+        })
+      })
+      // console.log('***************begin r2')
+      // console.log(r)
+      // console.log('*********************end r2')
+      return r
+    }
+  },
   methods: {
     goto (routerName) {
       this.$router.push({
