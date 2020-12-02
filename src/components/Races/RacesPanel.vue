@@ -66,7 +66,7 @@
                             ref="picker"
                             v-model="editedItem.dor"
                             max="2030-01-01"
-                            min="2020-01-01"
+                            min="2018-01-01"
                             @change="save_date"
                           ></v-date-picker>
                         </v-menu>
@@ -152,7 +152,7 @@ export default {
       ],
       races: [],
       distances: ['10K', '21.1K', '30K', '42.2K'],
-      years: ['2020', '2021', '2022'],
+      years: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
       wmms: ['Y', 'N'],
       bqs: ['Y', 'N'],
       dialog: false,
