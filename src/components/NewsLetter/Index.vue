@@ -1,6 +1,6 @@
 <template>
   <v-layout row wrap align-center>
-          <v-flex xs8  offset-md2>
+          <v-flex sm="8" cols="12">
             <div v-for="article in articles" :key="article.title">
               <v-card class="my-3" hover data-aos="zoom-in" data-aos-easing="ease">
                 <v-img
