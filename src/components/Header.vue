@@ -1,17 +1,17 @@
 <template>
   <v-app-bar
     app
-    color="primary"
+    color="primary" height="64px"
   >
     <v-toolbar fixed color="primary" dark padding=0 elevation="0">
-      <v-div class="mt-1">
+      <div class="mt-1">
         <v-img contain width="200px" class="mr-3 ml-3 mt-1 mb-1 hidden-sm-and-down"
           :src="require('@/assets/logo1_white.png')"
         ></v-img>
         <v-img contain width="65px" class="mr-3 ml-3 mt-1 mb-1 hidden-md-and-up"
           :src="require('@/assets/small_logo_white.png')"
         ></v-img>
-      </v-div>
+      </div>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn text dark :to="{ name: 'home' }"> Home </v-btn>
         <v-menu open-on-hover close-on-click close-on-content-click offset-y>
@@ -63,6 +63,8 @@
           </v-list>
         </v-menu>
         <v-spacer></v-spacer>
+      </v-toolbar-items>
+      <v-toolbar-items>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'login' }"> Login </v-btn>
         <v-btn v-if="false" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
         <v-btn v-if="$store.state.isUserLoggedIn" text dark @click="logout"> Log Out </v-btn>
@@ -87,25 +89,24 @@
             no-action
           >
             <template v-slot:activator>
-              <v-list-tile>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
+              <v-list-item>
+                <v-list-item-content>
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
             </template>
-            <v-list-tile
+            <v-list-item
               v-for="subItem in item.items"
               :key="subItem.title"
               @click="goto(subItem.name)"
             >
-              <v-list-tile-content>
-                <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
-              </v-list-tile-content>
-              <v-list-tile-action>
+              <v-list-item-content>
+                <v-list-item-title>{{ subItem.title }}</v-list-item-title>
+              </v-list-item-content>
+              <v-list-item-action>
                 <v-icon>{{ subItem.action }}</v-icon>
-              </v-list-tile-action>
-              <br>
-            </v-list-tile>
+              </v-list-item-action>
+            </v-list-item>
           </v-list-group>
         </v-list>
       </v-menu>

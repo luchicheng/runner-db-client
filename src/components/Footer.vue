@@ -4,15 +4,15 @@
       <v-flex color="primary" dark py-3 text-xs-center white--text xs12>
         <v-card-text>
           <v-btn
-            v-for="icon in icons"
-            :key="icon"
+            v-for="(icon, index) in icons"
+            :key="index"
             class="mx-4 white--text"
             v-bind:href="icon.url" target="_blank"
             icon
           >
             <v-icon size="24px">{{ icon.name }}</v-icon>
           </v-btn>
-          <v-btn color='blue darken-4' :to="{ name: 'sponsor' }"> Sponsorship </v-btn>
+          <v-btn color='primary' :to="{ name: 'sponsor' }"> Sponsorship </v-btn>
         </v-card-text>
       </v-flex>
       <v-flex color="primary" dark py-3 text-xs-center white--text xs12>
