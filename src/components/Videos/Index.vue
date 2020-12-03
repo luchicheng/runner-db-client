@@ -2,6 +2,11 @@
   <div>
     <v-layout>
       <v-flex xs6>
+        <YouTube :youtubeId="youtubeId3"/>
+      </v-flex>
+    </v-layout>
+    <v-layout>
+      <v-flex xs6>
         <YouTube :youtubeId="youtubeId1"/>
       </v-flex>
     </v-layout>
@@ -20,7 +25,8 @@ export default {
   data () {
     return {
       youtubeId1: 'Ot_zFegCX5s',
-      youtubeId2: '8HQAsXOA-nQ'
+      youtubeId2: '8HQAsXOA-nQ',
+      youtubeId3: 'BOAO9GPiPMQ'
     }
   },
   async mounted () {
