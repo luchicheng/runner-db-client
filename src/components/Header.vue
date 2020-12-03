@@ -62,8 +62,8 @@
             </v-list-item>
           </v-list>
         </v-menu>
-        <v-spacer></v-spacer>
       </v-toolbar-items>
+      <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'login' }"> Login </v-btn>
         <v-btn v-if="false" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
@@ -168,7 +168,7 @@ export default {
       },
       {
         action: 'data',
-        title: 'Data',
+        title: 'DATA',
         active: false,
         enabled: true,
         login_required: true,

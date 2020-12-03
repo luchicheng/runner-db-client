@@ -12,6 +12,7 @@
         label="Password"
         type="password"
         v-model="password"
+        @keyup.enter.native="login"
       ></v-text-field>
       <br>
       <div class="danger-alert" v-html="error" />
