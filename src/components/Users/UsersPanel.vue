@@ -42,7 +42,7 @@
                         <v-autocomplete ref="userType" v-model="editedItem.userType"
                           required
                           :items="userTypes"
-                          placeholder="Select..."
+                          placeholder="(A)dmin/(C)oach/(R)unner"
                           :rules="[ v => !!v || 'This field is required']"
                           label="User Type"
                         ></v-autocomplete>
@@ -92,7 +92,7 @@
                           :items="statuses"
                           required
                           :rules="[ v => !!v || 'This field is required']"
-                          placeholder="Select..."
+                          placeholder="(A)ctive/(I)nactive"
                           label="Status"
                         ></v-autocomplete>
                       </v-col>

@@ -64,7 +64,7 @@
         </v-menu>
       </v-toolbar-items>
       <v-toolbar-items>
-         <v-btn v-if="$store.state.user.userType == 'A'" text dark :to="{ name: 'members' }"> Membership </v-btn>
+         <v-btn v-if="$store.state.user && $store.state.user.userType == 'A'" text dark :to="{ name: 'members' }"> Membership </v-btn>
       </v-toolbar-items>
       <v-spacer></v-spacer>
       <v-toolbar-items>
