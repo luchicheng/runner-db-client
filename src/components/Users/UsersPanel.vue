@@ -3,13 +3,13 @@
     <v-app id="inspire">
       <v-data-table
         :headers="headers"
-        :items="races"
+        :items="users"
         sort-by="name"
         class="elevation-1"
       >
         <template v-slot:top>
           <v-toolbar flat color="white">
-            <v-toolbar-title>Races</v-toolbar-title>
+            <v-toolbar-title>Members</v-toolbar-title>
             <v-divider
               class="mx-4"
               inset
@@ -18,9 +18,13 @@
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="700px">
               <template v-slot:activator="{ on }">
-                <v-btn color="primary" dark class="mb-2" v-on="on">New Race</v-btn>
+                <v-btn color="primary" dark class="mb-2" v-on="on">New Member</v-btn>
               </template>
-              <v-card ref="form">
+              <v-form
+                ref="form"
+                v-model="valid"
+              >
+              <v-card>
                 <v-card-title>
                   <span class="headline">{{ formTitle }}</span>
                 </v-card-title>
@@ -28,19 +32,19 @@
                   <v-container>
                     <v-row>
                       <v-col cols="12" sm="6" md="4">
-                        <v-text-field ref="name" v-model="editedItem.name"
+                        <v-text-field ref="email" v-model="editedItem.email"
                           required
                           :rules="[ v => !!v || 'This field is required']"
-                          :error-messages="errorMessages" label="Race name"
+                          label="Member email"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
-                        <v-autocomplete ref="year" v-model="editedItem.year"
+                        <v-autocomplete ref="userType" v-model="editedItem.userType"
                           required
-                          :items="years"
+                          :items="userTypes"
                           placeholder="Select..."
                           :rules="[ v => !!v || 'This field is required']"
-                          :error-messages="errorMessages" label="Year"
+                          label="User Type"
                         ></v-autocomplete>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
@@ -54,17 +58,17 @@
                         >
                           <template v-slot:activator="{ on }">
                             <v-text-field
-                              v-model="editedItem.dor"
+                              v-model="editedItem.membershipExprireDate"
                               required
                               :rules="[ v => !!v || 'This field is required']"
-                              :error-messages="errorMessages" label="Date Of Race"
+                              label="Exprire Date"
                               readonly
                               v-on="on"
                             ></v-text-field>
                           </template>
                           <v-date-picker
                             ref="picker"
-                            v-model="editedItem.dor"
+                            v-model="editedItem.membershipExprireDate"
                             max="2030-01-01"
                             min="2018-01-01"
                             @change="save_date"
@@ -72,31 +76,25 @@
                         </v-menu>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
-                        <v-autocomplete ref="distance"
-                          v-model="editedItem.distance"
-                          :items="distances"
+                        <v-autocomplete ref="RunnerId"
+                          v-model="editedItem.RunnerId"
+                          :items="validRunners"
                           placeholder="Select..."
-                          label="Distance"
+                          item-value="id"
+                          item-text="name"
+                          label="Linked Runner"
+                          clearable
                         ></v-autocomplete>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
-                        <v-autocomplete ref="wmm"
-                          v-model="editedItem.wmm"
-                          :items="wmms"
+                        <v-autocomplete ref="status"
+                          v-model="editedItem.status"
+                          :items="statuses"
+                          required
+                          :rules="[ v => !!v || 'This field is required']"
                           placeholder="Select..."
-                          label="world major marathons"
+                          label="Status"
                         ></v-autocomplete>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-autocomplete ref="bq"
-                          v-model="editedItem.bq"
-                          :items="bqs"
-                          placeholder="Select..."
-                          label="BQ certified"
-                        ></v-autocomplete>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="8">
-                        <v-text-field ref="desc" v-model="editedItem.desc" label="Description"></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field ref="comment" v-model="editedItem.comment" label="Comment"></v-text-field>
@@ -110,6 +108,7 @@
                   <v-btn color="blue darken-1" text @click="save">Save</v-btn>
                 </v-card-actions>
               </v-card>
+              </v-form>
             </v-dialog>
           </v-toolbar>
         </template>
@@ -134,76 +133,56 @@
 </template>
 
 <script>
-import RacesService from '@/services/RacesService'
+import UsersService from '@/services/UsersService'
+import RunnersService from '@/services/RunnersService'
 
 export default {
   data () {
     return {
       headers: [
-        { text: 'Name', value: 'name' },
-        { text: 'Year', value: 'year' },
-        { text: 'Date Of Race', value: 'dor' },
-        { text: 'Distance', value: 'distance' },
-        { text: 'World Major Marathons', value: 'wmm' },
-        { text: 'BQ Certified', value: 'bq' },
-        { text: 'Description', value: 'desc' },
+        { text: 'Email', value: 'email' },
+        { text: 'User Type', value: 'userType' },
+        { text: 'Expire Date', value: 'membershipExprireDate' },
+        { text: 'Status', value: 'status' },
+        { text: 'Runner Name', value: 'Runner.name' },
         { text: 'Comment', value: 'comment' },
         { text: 'Actions', value: 'actions', sortable: false }
       ],
-      races: [],
-      distances: ['10K', '21.1K', '30K', '42.2K'],
-      years: ['2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025'],
-      wmms: ['Y', 'N'],
-      bqs: ['Y', 'N'],
+      validRunners: [],
+      users: [],
+      userTypes: ['A', 'C', 'R'],
+      statuses: ['A', 'I'],
       dialog: false,
       editedIndex: -1,
       menu: false,
       editedItem: {
-        name: '',
-        year: '',
-        dor: '',
-        distance: '',
-        wmm: '',
-        bq: '',
-        desc: '',
+        email: '',
+        userType: '',
+        membershipExprireDate: '',
+        status: '',
         comment: ''
       },
       defaultItem: {
-        name: '',
-        year: '',
-        dor: '',
-        distance: '',
-        wmm: '',
-        bq: '',
-        desc: '',
+        email: '',
+        userType: '',
+        membershipExprireDate: '',
+        status: '',
         comment: ''
       },
-      errorMessages: '',
-      // required: (value) => !!value || 'Required.'
-      formHasErrors: false
-
+      valid: false
     }
   },
   computed: {
     formTitle () {
-      return this.editedIndex === -1 ? 'New Race' : 'Edit Race'
+      return this.editedIndex === -1 ? 'New Member' : 'Edit Member'
     }
   },
   watch: {
-    menu (val) {
-      val && setTimeout(() => (this.$refs.picker.activePicker = 'YEAR'))
-    },
-    dialog (val) {
-      val || this.close()
-    },
     '$route.query.search': {
       immediate: true,
       async handler (value) {
-        this.races = (await RacesService.index(value)).data
+        this.users = (await UsersService.index(value)).data
       }
-    },
-    name () {
-      this.errorMessages = ''
     }
   },
   methods: {
@@ -211,26 +190,23 @@ export default {
       this.$refs.menu.save(date)
     },
     editItem (item) {
-      this.editedIndex = this.races.indexOf(item)
+      this.editedIndex = this.users.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
     },
 
     async deleteItem (item) {
-      const index = this.races.indexOf(item)
+      const index = this.users.indexOf(item)
       if (confirm('Are you sure you want to delete this item?')) {
         // TODO call backend
-        await RacesService.delete(item.id)
-        this.races.splice(index, 1)
+        await UsersService.delete(item.id)
+        this.users.splice(index, 1)
         console.log('deleted item spliced.....')
       }
     },
 
     close () {
       console.log('close method clicked.......')
-      this.errorMessages = []
-      this.formHasErrors = false
-
       this.dialog = false
       setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem)
@@ -239,44 +215,32 @@ export default {
     },
 
     async save () {
-      this.formHasErrors = false
-      // Object.keys(this.editedItem).forEach(f => {
-      //   console.log(f, this.$refs[f])
-      // })
-      Object.keys(this.editedItem).forEach(f => {
-        // console.log(f, this.formHasErrors)
-        if (f !== 'id' && f !== 'dor' && f !== 'createdAt' && f !== 'updatedAt') {
-          if (!this.$refs[f].validate(true)) {
-            this.formHasErrors = true
-          }
+      console.log(this.editedItem)
+      this.$refs.form.validate()
+      if (this.valid) {
+        try {
+          console.log(this.editedItem)
+          await UsersService.post(this.editedItem)
+          this.$refs.form.reset()
+        } catch (err) {
+          alert(err)
+          return
         }
-        // console.log(f, this.formHasErrors)
-      })
-
-      if (this.formHasErrors) {
-        console.log('Please fill in all the required fields.')
-        return
+        if (this.editedIndex && this.editedIndex > -1) {
+          Object.assign(this.users[this.editedIndex], this.editedItem)
+        } else {
+          this.users.push(this.editedItem)
+        }
+        console.log(10)
+        this.close()
       }
-
-      try {
-        console.log(7)
-        await RacesService.post(this.editedItem)
-        console.log(8)
-      } catch (err) {
-        console.log(err)
-        alert(err)
-        return
-      }
-
-      console.log(9)
-
-      if (this.editedIndex && this.editedIndex > -1) {
-        Object.assign(this.races[this.editedIndex], this.editedItem)
-      } else {
-        this.races.push(this.editedItem)
-      }
-      console.log(10)
-      this.close()
+    }
+  },
+  async mounted () {
+    try {
+      this.validRunners = (await RunnersService.index()).data
+    } catch (err) {
+      console.log(err)
     }
   }
 }

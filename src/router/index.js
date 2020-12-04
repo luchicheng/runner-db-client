@@ -9,6 +9,7 @@ import EditSong from '@/components/EditSong'
 import ViewSong from '@/components/ViewSong/Index'
 import Runners from '@/components/Runners/Index'
 import Races from '@/components/Races/Index'
+import Users from '@/components/Users/Index'
 import NewsLetter from '@/components/NewsLetter/Index'
 import Videos from '@/components/Videos/Index'
 import Albums from '@/components/Albums/Index'
@@ -37,6 +38,7 @@ export default new Router({
     { path: '/runners/:runnerId/race', name: 'runner-race', component: RunnerRaceRecord },
     { path: '/runners', name: 'runners', component: Runners },
     { path: '/races', name: 'races', component: Races },
+    { path: '/members', name: 'members', component: Users },
     { path: '/newsLetter', name: 'newsLetter', component: NewsLetter },
     { path: '/sponsor', name: 'sponsor', component: Sponsor },
     { path: '/videos', name: 'videos', component: Videos },

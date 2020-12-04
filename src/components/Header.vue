@@ -63,10 +63,24 @@
           </v-list>
         </v-menu>
       </v-toolbar-items>
+      <v-toolbar-items>
+         <v-btn v-if="$store.state.user.userType == 'A'" text dark :to="{ name: 'members' }"> Membership </v-btn>
+      </v-toolbar-items>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'login' }"> Login </v-btn>
         <v-btn v-if="false" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
+        <v-chip
+          v-if="$store.state.isUserLoggedIn"
+          class="ma-4"
+          color="indigo"
+          text-color="white"
+        >
+          <v-avatar left>
+            <v-icon>mdi-account-circle</v-icon>
+          </v-avatar>
+          {{$store.state.user.name}}
+        </v-chip>
         <v-btn v-if="$store.state.isUserLoggedIn" text dark @click="logout"> Log Out </v-btn>
       </v-toolbar-items>
       <v-menu :close-on-content-click="false" open-on-hover bottom offset-y>
