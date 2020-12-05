@@ -35,7 +35,7 @@
                         <v-text-field ref="email" v-model="editedItem.email"
                           required
                           :rules="[ v => !!v || 'This field is required']"
-                          label="Member email"
+                          label="Member ID"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
@@ -140,7 +140,7 @@ export default {
   data () {
     return {
       headers: [
-        { text: 'Email', value: 'email' },
+        { text: 'ID', value: 'email' },
         { text: 'User Type', value: 'userType' },
         { text: 'Expire Date', value: 'membershipExprireDate' },
         { text: 'Status', value: 'status' },
@@ -223,7 +223,7 @@ export default {
           await UsersService.post(this.editedItem)
           this.$refs.form.reset()
         } catch (err) {
-          alert(err)
+          alert(err.response.data.error)
           return
         }
         if (this.editedIndex && this.editedIndex > -1) {
@@ -238,7 +238,7 @@ export default {
   },
   async mounted () {
     try {
-      this.validRunners = (await RunnersService.index()).data
+      this.validRunners = (await RunnersService.index(null, 'ALL')).data
     } catch (err) {
       console.log(err)
     }

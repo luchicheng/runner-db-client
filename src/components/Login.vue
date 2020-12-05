@@ -4,7 +4,7 @@
   <v-col sm="6" cols="12">
     <panel title="Login">
       <v-text-field
-        label="Email"
+        label="ID"
         v-model="email"
       ></v-text-field>
       <br>

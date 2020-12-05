@@ -84,7 +84,7 @@ export default {
   async mounted () {
     try {
       this.validRaces = (await RacesService.index()).data
-      this.validRunners = (await RunnersService.index()).data
+      this.validRunners = (await RunnersService.index(null, 'ALL')).data
     } catch (err) {
       console.log(err)
     }

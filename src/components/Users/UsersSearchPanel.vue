@@ -1,7 +1,7 @@
 <template>
   <panel title="Search Members">
     <v-text-field
-      label="Search by email or comment"
+      label="Search by ID or comment"
       v-model="search"
     ></v-text-field>
   </panel>

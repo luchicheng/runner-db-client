@@ -18,7 +18,7 @@
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="700px">
               <template v-slot:activator="{ on }">
-                <v-btn color="primary" dark class="mb-2" v-on="on">New Race</v-btn>
+                <v-btn v-if="$store.state.user && $store.state.user.userType == 'C'" color="primary" dark class="mb-2" v-on="on">New Race</v-btn>
               </template>
               <v-card ref="form">
                 <v-card-title>
@@ -115,6 +115,7 @@
         </template>
         <template v-slot:[`item.actions`]="{ item }">
           <v-icon
+            v-if="$store.state.user && $store.state.user.userType == 'C'"
             small
             class="mr-2"
             @click="editItem(item)"
@@ -123,6 +124,7 @@
           </v-icon>
           <v-icon
             small
+            v-if="$store.state.user && $store.state.user.userType == 'C'"
             @click="deleteItem(item)"
           >
             mdi-delete

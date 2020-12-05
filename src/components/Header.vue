@@ -79,7 +79,7 @@
           <v-avatar left>
             <v-icon>mdi-account-circle</v-icon>
           </v-avatar>
-          {{$store.state.user.name}}
+          {{loginUserType}} {{$store.state.user.name}}
         </v-chip>
         <v-btn v-if="$store.state.isUserLoggedIn" text dark @click="logout"> Log Out </v-btn>
       </v-toolbar-items>
@@ -228,6 +228,20 @@ export default {
       // console.log(r)
       // console.log('*********************end r2')
       return r
+    },
+    loginUserType: function () {
+      if (this.$store.state.isUserLoggedIn) {
+        if (this.$store.state.user.userType === 'A') {
+          return 'Admin'
+        }
+        if (this.$store.state.user.userType === 'C') {
+          return 'Coach'
+        }
+        if (this.$store.state.user.userType === 'R') {
+          return 'Runner'
+        }
+      }
+      return null
     }
   },
   methods: {

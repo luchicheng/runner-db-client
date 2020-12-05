@@ -2,11 +2,13 @@ import Api from '@/services/Api'
 // import MyUtils from './myUtils'
 
 export default {
-  index (search) {
-    // console.log('TWO HOURS', MyUtils.convertSecToHMS(7200))
+  index (search, runnerFilter) {
+    // console.log('search value in Runner Service:', search)
+    // console.log('runnerFilter value in Runner Service:', runnerFilter)
     return Api().get('runners', {
       params: {
-        search: search
+        search: search,
+        runnerFilter: runnerFilter
       }
     })
   },

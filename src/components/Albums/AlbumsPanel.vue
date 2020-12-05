@@ -18,7 +18,7 @@
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="700px">
               <template v-slot:activator="{ on }">
-                <v-btn color="primary" dark class="mb-2" v-on="on">New Album</v-btn>
+                <v-btn v-if="$store.state.isUserLoggedIn" color="primary" dark class="mb-2" v-on="on">New Album</v-btn>
               </template>
               <v-form
                 ref="form"
@@ -57,10 +57,10 @@
             </v-dialog>
           </v-toolbar>
         </template>
-        <template v-slot:item.actions="{ item }">
+        <template v-slot:[`item.actions`]="{ item }">
           <v-icon
             small
-            v-if="$store.state.isUserLoggedIn"
+            v-if="$store.state.user && $store.state.user.userType == 'A'"
             class="mr-2"
             @click="editItem(item)"
           >
@@ -68,7 +68,7 @@
           </v-icon>
           <v-icon
             small
-            v-if="$store.state.isUserLoggedIn"
+            v-if="$store.state.user && $store.state.user.userType == 'A'"
             class="mr-2"
             @click="deleteItem(item)"
           >
