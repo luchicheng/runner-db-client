@@ -99,6 +99,21 @@
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field ref="comment" v-model="editedItem.comment" label="Comment"></v-text-field>
                       </v-col>
+                      <v-col v-if="formTitle === 'Edit Member'" cols="12" sm="6" md="4">
+                        <v-checkbox
+                          v-model="editedItem.resetPwd"
+                          label="Reset Password"
+                          color="primary"
+                          value="primary"
+                          hide-details
+                        ></v-checkbox>
+                      </v-col>
+                      <v-col v-if="formTitle === 'Edit Member'" cols="12" sm="6" md="4">
+                        <v-text-field ref="password" v-model="editedItem.password" label="New password"></v-text-field>
+                      </v-col>
+                      <v-col v-if="formTitle === 'Edit Member'" cols="12" sm="6" md="4">
+                        <v-text-field ref="rePassword" v-model="editedItem.rePassword" label="Retype new password"></v-text-field>
+                      </v-col>
                     </v-row>
                   </v-container>
                 </v-card-text>

@@ -10,6 +10,7 @@ import ViewSong from '@/components/ViewSong/Index'
 import Runners from '@/components/Runners/Index'
 import Races from '@/components/Races/Index'
 import Users from '@/components/Users/Index'
+import PasswordReset from '@/components/Users/PasswordReset'
 import NewsLetter from '@/components/NewsLetter/Index'
 import Videos from '@/components/Videos/Index'
 import Albums from '@/components/Albums/Index'
@@ -39,6 +40,7 @@ export default new Router({
     { path: '/runners', name: 'runners', component: Runners },
     { path: '/races', name: 'races', component: Races },
     { path: '/members', name: 'members', component: Users },
+    { path: '/passwordReset', name: 'passwordReset', component: PasswordReset },
     { path: '/newsLetter', name: 'newsLetter', component: NewsLetter },
     { path: '/sponsor', name: 'sponsor', component: Sponsor },
     { path: '/videos', name: 'videos', component: Videos },

@@ -70,17 +70,28 @@
       <v-toolbar-items>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'login' }"> Login </v-btn>
         <v-btn v-if="false" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
-        <v-chip
-          v-if="$store.state.isUserLoggedIn"
-          class="ma-4"
-          color="indigo"
-          text-color="white"
-        >
-          <v-avatar left>
-            <v-icon>mdi-account-circle</v-icon>
-          </v-avatar>
-          {{loginUserType}} {{$store.state.user.name}}
-        </v-chip>
+        <v-menu offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-chip
+              v-if="$store.state.isUserLoggedIn"
+              class="ma-4"
+              color="indigo"
+              text-color="white"
+              v-bind="attrs"
+              v-on="on"
+            >
+              <v-avatar left>
+                <v-icon>mdi-account-circle</v-icon>
+              </v-avatar>
+              {{loginUserType}} {{$store.state.user.name}}
+            </v-chip>
+          </template>
+          <v-list>
+            <v-list-item>
+              <v-list-item-title @click="goto( 'passwordReset' )">Password Reset</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
         <v-btn v-if="$store.state.isUserLoggedIn" text dark @click="logout"> Log Out </v-btn>
       </v-toolbar-items>
       <v-menu :close-on-content-click="false" open-on-hover bottom offset-y>

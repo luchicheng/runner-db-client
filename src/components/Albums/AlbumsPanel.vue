@@ -4,7 +4,6 @@
       <v-data-table
         :headers="headers"
         :items="albums"
-        sort-by="name"
         class="elevation-1"
       >
         <template v-slot:top>
