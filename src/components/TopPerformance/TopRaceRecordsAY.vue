@@ -1,45 +1,53 @@
 <template>
-    <div id="app">
-    <v-app id="inspire">
-      <v-layout>
-        <v-data-table
-          :headers="headers"
-          :items="searchResultFemale"
-          class="elevation-1" hide-default-footer
-        >
-          <template v-slot:top>
-            <v-toolbar flat color="white">
-              <v-toolbar-title>Top Performances Females</v-toolbar-title>
-              <v-divider
-                class="mx-4"
-                inset
-                vertical
-              ></v-divider>
-              <p class="font-weight-light">asof {{ asOf }}</p>
-              <v-spacer></v-spacer>
-            </v-toolbar>
-          </template>
-        </v-data-table>
-        <v-data-table
-          :headers="headers"
-          :items="searchResultMale"
-          class="elevation-1 ml-4"  hide-default-footer
-        >
-          <template v-slot:top>
-            <v-toolbar flat color="white">
-              <v-toolbar-title>Males </v-toolbar-title>
-              <v-divider
-                class="mx-4"
-                inset
-                vertical
-              ></v-divider>
-              <v-spacer></v-spacer>
-            </v-toolbar>
-          </template>
-        </v-data-table>
-      </v-layout>
-    </v-app>
-  </div>
+  <panel title="Top Performances for All Years">
+    <p class="font-weight-light text-left">
+      Asof {{ asOf }}
+    </p>
+    <v-container>
+      <v-row>
+        <v-col cols="12" md="6">
+          <v-data-table
+            :headers="headers"
+            :items="searchResultFemale"
+            class="elevation-1" hide-default-footer
+            style="overflow: auto"
+          >
+            <template v-slot:top>
+              <v-toolbar flat color="white">
+                <v-toolbar-title>Females</v-toolbar-title>
+                <v-divider
+                  class="mx-4"
+                  inset
+                  vertical
+                ></v-divider>
+                <v-spacer></v-spacer>
+              </v-toolbar>
+            </template>
+          </v-data-table>
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-data-table
+            :headers="headers"
+            :items="searchResultMale"
+            class="elevation-1 ml-4"  hide-default-footer
+            style="overflow: auto"
+          >
+            <template v-slot:top>
+              <v-toolbar flat color="white">
+                <v-toolbar-title>Males </v-toolbar-title>
+                <v-divider
+                  class="mx-4"
+                  inset
+                  vertical
+                ></v-divider>
+                <v-spacer></v-spacer>
+              </v-toolbar>
+            </template>
+          </v-data-table>
+        </v-col>
+      </v-row>
+    </v-container>
+  </panel>
 </template>
 
 <script>
@@ -50,6 +58,7 @@ export default {
   data () {
     return {
       headers: [
+        { text: '#', value: 'index', sortable: false },
         { text: 'Name', value: 'runnerName', sortable: false },
         { text: 'NickName', value: 'nickName', sortable: false },
         { text: 'AgeGroup', value: 'ageGroup', sortable: false },

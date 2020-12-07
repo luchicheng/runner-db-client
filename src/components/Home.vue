@@ -219,7 +219,7 @@ export default {
         ['150+', 'Members'],
         ['120+', 'Group Runnings'],
         ['25+', 'Races and Supports'],
-        ['30+', 'BQ starts']
+        ['30+', 'BQ stars']
       ]
     }
   },

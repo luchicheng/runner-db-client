@@ -74,7 +74,7 @@
           <template v-slot:activator="{ on, attrs }">
           <v-chip
             class="ma-4"
-            color="indigo"
+            color="#0D47A1"
             text-color="white"
             v-bind="attrs"
             v-on="on"
