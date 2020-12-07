@@ -16,9 +16,7 @@ export default {
   post (runnerId, raceId, racerecord) {
     racerecord.RunnerId = runnerId
     racerecord.RaceId = raceId
-    console.log('RaceRecordService post (racerecord) begin')
     const ret = Api().post('racerecords', racerecord)
-    console.log('RaceRecordService post (racerecord) end')
     return ret
   },
   put (racerecord) {

@@ -108,7 +108,7 @@
             </v-dialog>
           </v-toolbar>
         </template>
-        <template v-slot:item.actions="{ item }">
+        <template v-slot:[`item.actions`]="{ item }">
           <v-icon small color="blue" class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
           <v-icon small class="mr-2" @click="deleteItem(item)">mdi-delete</v-icon>
         </template>
@@ -122,6 +122,9 @@ import {mapState} from 'vuex'
 import TrainingRecordsService from '@/services/TrainingRecordsService'
 
 export default {
+  // props: [
+  //   'runnerId'
+  // ],
   data () {
     return {
       runnerId: '',
@@ -145,7 +148,7 @@ export default {
       defaultItem: {},
       errorMessages: '',
       valid: false,
-      allowedhours: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+      allowedhours: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
     }
   },
   computed: {
@@ -189,12 +192,11 @@ export default {
         // TODO call backend
         await TrainingRecordsService.delete(item.id)
         this.trainingRecords.splice(index, 1)
-        console.log('deleted item spliced.....')
+        // console.log('deleted item spliced.....')
       }
     },
 
     close () {
-      console.log('close method clicked.......')
       this.errorMessages = []
       this.formHasErrors = false
 
@@ -221,14 +223,14 @@ export default {
         } else {
           this.trainingRecords.push(this.editedItem)
         }
-        console.log(10)
         this.close()
       }
     }
   },
   async mounted () {
+    console.log('mounted:' + JSON.stringify(this.route))
     this.runnerId = this.route.params.runnerId
-    console.log('runnerId in current traininng records vue:', this.runnerId)
+    console.log('mounted:' + this.runnerId)
     this.trainingRecords = (await TrainingRecordsService.searchTrainingRecords(
       this.runnerId, null)
     ).data

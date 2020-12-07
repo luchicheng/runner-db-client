@@ -271,6 +271,8 @@ export default {
       this.dialog = true
     },
     gotoSubmitTrainningRecord (item) {
+      console.log('gotoSubmitTrainningRecord', item.id)
+      console.log('gotoSubmitTrainningRecord', item.name)
       this.$router.push({
         name: 'runner-training',
         params: {
@@ -292,7 +294,6 @@ export default {
     async deleteItem (item) {
       const index = this.runners.indexOf(item)
       if (confirm('Are you sure you want to delete this item?')) {
-        // TODO call backend
         await RunnersService.delete(item.id)
         this.runners.splice(index, 1)
       }

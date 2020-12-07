@@ -15,9 +15,7 @@ export default {
   },
   post (runnerId, trainingrecord) {
     trainingrecord.RunnerId = runnerId
-    console.log('TrainingRecordService post (trainingrecord) begin')
     const ret = Api().post('trainingrecords', trainingrecord)
-    console.log('TrainingRecordService post (trainingrecord) end')
     return ret
   },
   put (trainingrecord) {

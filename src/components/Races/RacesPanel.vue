@@ -20,96 +20,98 @@
               <template v-slot:activator="{ on }">
                 <v-btn v-if="$store.state.user && $store.state.user.userType == 'C'" color="primary" dark class="mb-2" v-on="on">New Race</v-btn>
               </template>
-              <v-card ref="form">
-                <v-card-title>
-                  <span class="headline">{{ formTitle }}</span>
-                </v-card-title>
-                <v-card-text>
-                  <v-container>
-                    <v-row>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field ref="name" v-model="editedItem.name"
-                          required
-                          :rules="[ v => !!v || 'This field is required']"
-                          :error-messages="errorMessages" label="Race name"
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-autocomplete ref="year" v-model="editedItem.year"
-                          required
-                          :items="years"
-                          placeholder="Select..."
-                          :rules="[ v => !!v || 'This field is required']"
-                          :error-messages="errorMessages" label="Year"
-                        ></v-autocomplete>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                         <v-menu
-                          ref="menu"
-                          v-model="menu"
-                          :close-on-content-click="false"
-                          transition="scale-transition"
-                          offset-y
-                          min-width="290px"
-                        >
-                          <template v-slot:activator="{ on }">
-                            <v-text-field
+              <v-form
+                ref="form"
+                autocomplete="off">
+                <v-card>
+                  <v-card-title>
+                    <span class="headline">{{ formTitle }}</span>
+                  </v-card-title>
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field ref="name" v-model="editedItem.name"
+                            :rules="[ v => !!v || 'This field is required']"
+                            label="Race name"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-autocomplete ref="year" v-model="editedItem.year"
+                            :items="years"
+                            placeholder="Select..."
+                            :rules="[ v => !!v || 'This field is required']"
+                            label="Year"
+                          ></v-autocomplete>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-menu
+                            ref="menu"
+                            v-model="menu"
+                            :close-on-content-click="false"
+                            transition="scale-transition"
+                            offset-y
+                            min-width="290px"
+                          >
+                            <template v-slot:activator="{ on }">
+                              <v-text-field
+                                v-model="editedItem.dor"
+                                required
+                                :rules="[ v => !!v || 'This field is required']"
+                                label="Date Of Race"
+                                readonly
+                                v-on="on"
+                              ></v-text-field>
+                            </template>
+                            <v-date-picker
+                              ref="picker"
                               v-model="editedItem.dor"
-                              required
-                              :rules="[ v => !!v || 'This field is required']"
-                              :error-messages="errorMessages" label="Date Of Race"
-                              readonly
-                              v-on="on"
-                            ></v-text-field>
-                          </template>
-                          <v-date-picker
-                            ref="picker"
-                            v-model="editedItem.dor"
-                            max="2030-01-01"
-                            min="2018-01-01"
-                            @change="save_date"
-                          ></v-date-picker>
-                        </v-menu>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-autocomplete ref="distance"
-                          v-model="editedItem.distance"
-                          :items="distances"
-                          placeholder="Select..."
-                          label="Distance"
-                        ></v-autocomplete>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-autocomplete ref="wmm"
-                          v-model="editedItem.wmm"
-                          :items="wmms"
-                          placeholder="Select..."
-                          label="world major marathons"
-                        ></v-autocomplete>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-autocomplete ref="bq"
-                          v-model="editedItem.bq"
-                          :items="bqs"
-                          placeholder="Select..."
-                          label="BQ certified"
-                        ></v-autocomplete>
-                      </v-col>
-                      <v-col cols="12" sm="12" md="8">
-                        <v-text-field ref="desc" v-model="editedItem.desc" label="Description"></v-text-field>
-                      </v-col>
-                      <v-col cols="12" sm="6" md="4">
-                        <v-text-field ref="comment" v-model="editedItem.comment" label="Comment"></v-text-field>
-                      </v-col>
-                    </v-row>
-                  </v-container>
-                </v-card-text>
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                  <v-btn color="blue darken-1" text @click="save">Save</v-btn>
-                </v-card-actions>
-              </v-card>
+                              max="2030-01-01"
+                              min="2018-01-01"
+                              @change="save_date"
+                            ></v-date-picker>
+                          </v-menu>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-autocomplete ref="distance"
+                            v-model="editedItem.distance"
+                            :items="distances"
+                            placeholder="Select..."
+                            label="Distance"
+                          ></v-autocomplete>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-autocomplete ref="wmm"
+                            v-model="editedItem.wmm"
+                            :items="wmms"
+                            placeholder="Select..."
+                            label="world major marathons"
+                          ></v-autocomplete>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-autocomplete ref="bq"
+                            v-model="editedItem.bq"
+                            :items="bqs"
+                            placeholder="Select..."
+                            label="BQ certified"
+                          ></v-autocomplete>
+                        </v-col>
+                        <v-col cols="12" sm="12" md="8">
+                          <v-text-field ref="desc" v-model="editedItem.desc" label="Description"></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field ref="comment" v-model="editedItem.comment" label="Comment"></v-text-field>
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
+                    <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-form>
             </v-dialog>
           </v-toolbar>
         </template>
@@ -179,10 +181,7 @@ export default {
         bq: '',
         desc: '',
         comment: ''
-      },
-      errorMessages: '',
-      // required: (value) => !!value || 'Required.'
-      formHasErrors: false
+      }
 
     }
   },
@@ -221,17 +220,13 @@ export default {
     async deleteItem (item) {
       const index = this.races.indexOf(item)
       if (confirm('Are you sure you want to delete this item?')) {
-        // TODO call backend
         await RacesService.delete(item.id)
         this.races.splice(index, 1)
-        console.log('deleted item spliced.....')
+        // console.log('deleted item spliced.....')
       }
     },
 
     close () {
-      this.errorMessages = []
-      this.formHasErrors = false
-
       this.dialog = false
       setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem)
@@ -240,19 +235,9 @@ export default {
     },
 
     async save () {
-      this.formHasErrors = false
-      Object.keys(this.editedItem).forEach(f => {
-        if (f !== 'id' && f !== 'dor' && f !== 'createdAt' && f !== 'updatedAt') {
-          if (!this.$refs[f].validate(true)) {
-            this.formHasErrors = true
-          }
-        }
-      })
-
-      if (this.formHasErrors) {
+      if (!this.$refs.form.validate()) {
         return
       }
-
       try {
         await RacesService.post(this.editedItem)
       } catch (err) {

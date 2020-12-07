@@ -12,10 +12,8 @@ export default {
     return Api().get(`users/${userId}`)
   },
   post (user) {
-    console.log('UserService post (user) begin')
     console.log(user)
     const ret = Api().post('users', user)
-    console.log('UserService post (user) end')
     return ret
   },
   put (user) {
