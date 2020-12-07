@@ -229,7 +229,6 @@ export default {
     },
 
     close () {
-      console.log('close method clicked.......')
       this.errorMessages = []
       this.formHasErrors = false
 
@@ -242,42 +241,31 @@ export default {
 
     async save () {
       this.formHasErrors = false
-      // Object.keys(this.editedItem).forEach(f => {
-      //   console.log(f, this.$refs[f])
-      // })
       Object.keys(this.editedItem).forEach(f => {
-        // console.log(f, this.formHasErrors)
         if (f !== 'id' && f !== 'dor' && f !== 'createdAt' && f !== 'updatedAt') {
           if (!this.$refs[f].validate(true)) {
             this.formHasErrors = true
           }
         }
-        // console.log(f, this.formHasErrors)
       })
 
       if (this.formHasErrors) {
-        console.log('Please fill in all the required fields.')
         return
       }
 
       try {
-        console.log(7)
         await RacesService.post(this.editedItem)
-        console.log(8)
       } catch (err) {
         console.log(err)
         alert(err)
         return
       }
 
-      console.log(9)
-
-      if (this.editedIndex && this.editedIndex > -1) {
+      if (this.editedIndex > -1) {
         Object.assign(this.races[this.editedIndex], this.editedItem)
       } else {
         this.races.push(this.editedItem)
       }
-      console.log(10)
       this.close()
     }
   }

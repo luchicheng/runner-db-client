@@ -216,7 +216,7 @@ export default {
           return
         }
 
-        if (this.editedIndex && this.editedIndex > -1) {
+        if (this.editedIndex > -1) {
           Object.assign(this.trainingRecords[this.editedIndex], this.editedItem)
         } else {
           this.trainingRecords.push(this.editedItem)

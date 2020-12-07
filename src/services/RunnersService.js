@@ -20,9 +20,7 @@ export default {
     return Api().get(`runners/extradata/${runnerId}`)
   },
   post (runner) {
-    console.log('RunnerService post (runner) begin')
     const ret = Api().post('runners', runner)
-    console.log('RunnerService post (runner) end')
     return ret
   },
   // TODO if runner has race, update raceName back to runner table.

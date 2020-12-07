@@ -134,7 +134,6 @@ export default {
         // TODO call backend
         await AlbumsService.delete(item.id)
         this.albums.splice(index, 1)
-        console.log('deleted item spliced.....')
       }
     },
 
@@ -149,7 +148,6 @@ export default {
     },
 
     close () {
-      console.log('close method clicked.......')
       this.dialog = false
       setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem)
@@ -162,19 +160,16 @@ export default {
       if (this.valid) {
         try {
           await AlbumsService.post(this.editedItem)
+          if (this.editedIndex > -1) {
+            Object.assign(this.albums[this.editedIndex], this.editedItem)
+          } else {
+            this.albums.push(this.editedItem)
+          }
+          this.close()
         } catch (err) {
           console.log(err)
           alert(err)
-          return
         }
-
-        if (this.editedIndex && this.editedIndex > -1) {
-          Object.assign(this.albums[this.editedIndex], this.editedItem)
-        } else {
-          this.albums.push(this.editedItem)
-        }
-        console.log(10)
-        this.close()
       }
     }
   }

@@ -12,9 +12,7 @@ export default {
     return Api().get(`races/${raceId}`)
   },
   post (race) {
-    console.log('RaceService post (race) begin')
     const ret = Api().post('races', race)
-    console.log('RaceService post (race) end')
     return ret
   },
   put (race) {

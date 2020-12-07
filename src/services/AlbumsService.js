@@ -36,10 +36,8 @@ export default {
   show (albumId) {
     return Api().get(`albums/${albumId}`)
   },
-  async post (album) {
-    console.log('AlbumService post (album) begin')
-    const ret = Api().post('albums', album)
-    console.log('AlbumService post (album) end')
+  post (album) {
+    let ret = Api().post('albums', album)
     return ret
   },
   put (album) {

@@ -104,7 +104,7 @@ export default {
       distanceTypes: ['5K', '8K', '10K', '21.1K', '30K', '32K'],
       error: null,
       // [ 0,...10 ]
-      allowedhours: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
+      allowedhours: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ],
       runnerId: ''
     }
   },

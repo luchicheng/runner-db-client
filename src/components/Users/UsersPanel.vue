@@ -99,21 +99,6 @@
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field ref="comment" v-model="editedItem.comment" label="Comment"></v-text-field>
                       </v-col>
-                      <v-col v-if="formTitle === 'Edit Member'" cols="12" sm="6" md="4">
-                        <v-checkbox
-                          v-model="editedItem.resetPwd"
-                          label="Reset Password"
-                          color="primary"
-                          value="primary"
-                          hide-details
-                        ></v-checkbox>
-                      </v-col>
-                      <v-col v-if="formTitle === 'Edit Member'" cols="12" sm="6" md="4">
-                        <v-text-field ref="password" v-model="editedItem.password" label="New password"></v-text-field>
-                      </v-col>
-                      <v-col v-if="formTitle === 'Edit Member'" cols="12" sm="6" md="4">
-                        <v-text-field ref="rePassword" v-model="editedItem.rePassword" label="Retype new password"></v-text-field>
-                      </v-col>
                     </v-row>
                   </v-container>
                 </v-card-text>
@@ -221,7 +206,6 @@ export default {
     },
 
     close () {
-      console.log('close method clicked.......')
       this.dialog = false
       setTimeout(() => {
         this.editedItem = Object.assign({}, this.defaultItem)
@@ -230,23 +214,21 @@ export default {
     },
 
     async save () {
-      console.log(this.editedItem)
       this.$refs.form.validate()
       if (this.valid) {
         try {
           console.log(this.editedItem)
           await UsersService.post(this.editedItem)
-          this.$refs.form.reset()
+          // this.$refs.form.reset()
         } catch (err) {
           alert(err.response.data.error)
           return
         }
-        if (this.editedIndex && this.editedIndex > -1) {
+        if (this.editedIndex > -1) {
           Object.assign(this.users[this.editedIndex], this.editedItem)
         } else {
           this.users.push(this.editedItem)
         }
-        console.log(10)
         this.close()
       }
     }
