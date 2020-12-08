@@ -69,7 +69,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'login' }"> Login </v-btn>
-        <v-btn v-if="false" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
+        <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
         <v-menu open-on-hover v-if="$store.state.isUserLoggedIn" offset-y>
           <template v-slot:activator="{ on, attrs }">
           <v-chip
@@ -82,13 +82,18 @@
             <v-avatar left>
               <v-icon>mdi-account-circle</v-icon>
             </v-avatar>
-            {{loginUserType}} {{$store.state.user.name}}
+            {{loginUserType}} {{$store.state.user ? $store.state.user.name : ""}}
           </v-chip>
         </template>
           <v-list>
             <v-list-item>
               <v-list-item-content>
                 <v-list-item-title @click="goto( 'passwordReset' )">Password Reset</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title @click="goto( 'myInfo' )">My Information</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
             <v-list-item>
@@ -246,7 +251,7 @@ export default {
       return r
     },
     loginUserType: function () {
-      if (this.$store.state.isUserLoggedIn) {
+      if (this.$store.state.isUserLoggedIn && this.$store.state.user) {
         if (this.$store.state.user.userType === 'A') {
           return 'Admin'
         }

@@ -97,6 +97,38 @@
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
+                            label="Referer"
+                            v-model="editedItem.referer"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field
+                            label="Personal Best"
+                            v-model="editedItem.personalBest"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-autocomplete
+                            v-model="editedItem.runningAge"
+                            :items="runningAges"
+                            placeholder="Select..."
+                            label="Running Age"
+                          ></v-autocomplete>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field
+                            label="Other Sports Hobbies"
+                            v-model="editedItem.otherSportsHobbies"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field
+                            label="Personal Target"
+                            v-model="editedItem.personalTarget"
+                          ></v-text-field>
+                        </v-col>
+                        <v-col cols="12" sm="6" md="4">
+                          <v-text-field
                             ref="ePhone"
                             :rules="[ v => !!v || 'This field is required']"
                             v-model="editedItem.ePhone" label="Emergency Phone"></v-text-field>
@@ -210,6 +242,7 @@ export default {
         { text: 'Gender', value: 'gender' },
         { text: 'Nick Name', value: 'nickName' },
         { text: 'Phone', value: 'phone', sortable: false },
+        { text: 'Referer', value: 'referer' },
         { text: 'Comment', value: 'comment' },
         { text: 'Goal Race', value: 'Race.name' },
         { text: 'Goal Race Time', value: 'goalRaceTime' },
@@ -217,6 +250,7 @@ export default {
       ],
       runners: [],
       sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
+      runningAges: [ '1', '2', '3', '4', '5', '5+', '10+', '20+', '30+' ],
       genders: ['M', 'F'],
       validRaces: [],
       dialog: false,

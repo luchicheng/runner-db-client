@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Register from '@/components/Register'
+import Register from '@/components/Users/Register'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
 import Songs from '@/components/Songs/Index'
@@ -11,6 +11,7 @@ import Runners from '@/components/Runners/Index'
 import Races from '@/components/Races/Index'
 import Users from '@/components/Users/Index'
 import PasswordReset from '@/components/Users/PasswordReset'
+import MyInfo from '@/components/Users/MyInfo'
 import NewsLetter from '@/components/NewsLetter/Index'
 import Videos from '@/components/Videos/Index'
 import Albums from '@/components/Albums/Index'
@@ -41,6 +42,7 @@ export default new Router({
     { path: '/races', name: 'races', component: Races },
     { path: '/members', name: 'members', component: Users },
     { path: '/passwordReset', name: 'passwordReset', component: PasswordReset },
+    { path: '/myInfo', name: 'myInfo', component: MyInfo },
     { path: '/newsLetter', name: 'newsLetter', component: NewsLetter },
     { path: '/sponsor', name: 'sponsor', component: Sponsor },
     { path: '/videos', name: 'videos', component: Videos },

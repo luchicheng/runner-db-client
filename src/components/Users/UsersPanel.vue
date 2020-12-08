@@ -99,6 +99,18 @@
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field ref="comment" v-model="editedItem.comment" label="Comment"></v-text-field>
                       </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field
+                          label="Email"
+                          v-model="editedItem.email2"
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-text-field
+                          label="Address"
+                          v-model="editedItem.address"
+                        ></v-text-field>
+                      </v-col>
                     </v-row>
                   </v-container>
                 </v-card-text>
@@ -142,6 +154,7 @@ export default {
       headers: [
         { text: 'ID', value: 'email' },
         { text: 'User Type', value: 'userType' },
+        { text: 'Register Date', value: 'registerDate' },
         { text: 'Expire Date', value: 'membershipExprireDate' },
         { text: 'Status', value: 'status' },
         { text: 'Runner Name', value: 'Runner.name' },
@@ -156,18 +169,8 @@ export default {
       editedIndex: -1,
       menu: false,
       editedItem: {
-        email: '',
-        userType: '',
-        membershipExprireDate: '',
-        status: '',
-        comment: ''
       },
       defaultItem: {
-        email: '',
-        userType: '',
-        membershipExprireDate: '',
-        status: '',
-        comment: ''
       },
       valid: false
     }
@@ -201,7 +204,6 @@ export default {
         // TODO call backend
         await UsersService.delete(item.id)
         this.users.splice(index, 1)
-        console.log('deleted item spliced.....')
       }
     },
 
@@ -217,7 +219,6 @@ export default {
       this.$refs.form.validate()
       if (this.valid) {
         try {
-          console.log(this.editedItem)
           await UsersService.post(this.editedItem)
           // this.$refs.form.reset()
         } catch (err) {

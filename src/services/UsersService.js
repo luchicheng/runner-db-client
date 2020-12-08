@@ -12,7 +12,6 @@ export default {
     return Api().get(`users/${userId}`)
   },
   post (user) {
-    console.log(user)
     const ret = Api().post('users', user)
     return ret
   },
