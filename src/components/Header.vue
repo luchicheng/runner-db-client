@@ -62,6 +62,7 @@
             </v-list-item>
           </v-list>
         </v-menu>
+        <v-btn text dark :to="{ name: 'shopping' }"> Shopping </v-btn>
       </v-toolbar-items>
       <v-toolbar-items>
          <v-btn v-if="$store.state.user && $store.state.user.userType == 'A'" text dark :to="{ name: 'members' }"> Membership </v-btn>
@@ -224,6 +225,14 @@ export default {
           { title: 'Current Year', name: 'topRaceRecordsCY', enabled: true },
           { title: 'All Years', name: 'topRaceRecordsAY', enabled: true }
         ]
+      },
+      {
+        action: 'shopping',
+        title: 'SHOPPING',
+        active: true,
+        enabled: true,
+        login_required: false,
+        name: 'shopping'
       }
     ]
   }),

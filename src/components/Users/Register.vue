@@ -176,7 +176,7 @@
                     ></v-autocomplete>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field ref="nickName" v-model="runnerInfo.nickName" label="Nick Name"></v-text-field>
+                    <v-text-field ref="nickName" v-model="runnerInfo.nickName" label="Wechat Nick Name"></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-autocomplete ref="size"

@@ -1,7 +1,7 @@
 <template>
   <panel title="Runner Information">
     <v-text-field label="Name" readonly v-model="runnerMetadata.name" ></v-text-field>
-    <v-text-field label="Nick Name" readonly v-model="runnerMetadata.nickName" ></v-text-field>
+    <v-text-field label="Wechat Nick Name" readonly v-model="runnerMetadata.nickName" ></v-text-field>
     <v-text-field label="Gender" readonly v-model="runnerMetadata.gender" ></v-text-field>
     <v-text-field label="Goal Race" readonly v-model="runnerMetadata.raceName" ></v-text-field>
     <v-text-field label="Goal Time" readonly v-model="runnerMetadata.goalRaceTime" ></v-text-field>
