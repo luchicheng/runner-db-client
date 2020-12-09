@@ -283,7 +283,7 @@ export default {
         // this.$store.dispatch('setToken', response.data.token)
         // this.$store.dispatch('setUser', response.data.user)
         if (response.data.user) {
-          alert('user [' + response.data.user.email + '] been regestered succussfully, please contact 91CAMP admin, to activate it. Thank you.')
+          alert('User [' + response.data.user.email + '] has been registered succussfully, please contact 91CAMP admin, to activate it. Thank you.')
         }
         this.$router.push({
           name: 'home'
