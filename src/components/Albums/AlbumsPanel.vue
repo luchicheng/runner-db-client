@@ -38,7 +38,7 @@
                           ></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="12" md="8">
-                          <v-text-field ref="desc" v-model="editedItem.gid" label="https://photos.app.goo.gl/[:GID]"></v-text-field>
+                          <v-text-field ref="desc" v-model="editedItem.gid" label="https://photos.app.goo.gl/[:GID] or complete URL starts with https://"></v-text-field>
                         </v-col>
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field ref="comment" v-model="editedItem.comment" label="Comment"></v-text-field>
@@ -138,13 +138,17 @@ export default {
     },
 
     gotoViewAlbum (item) {
-      this.$router.push({
-        name: 'albumsDetail',
-        params: {
-          albumGid: item.gid,
-          albumName: item.name
-        }
-      })
+      if (item.gid.startsWith('https://')) {
+        window.open(item.gid, '_blank')
+      } else {
+        this.$router.push({
+          name: 'albumsDetail',
+          params: {
+            albumGid: item.gid,
+            albumName: item.name
+          }
+        })
+      }
     },
 
     close () {
