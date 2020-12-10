@@ -18,15 +18,15 @@
           <template v-slot:activator="{ on }">
             <v-btn text dark
               v-on="on"
-            >Blogs</v-btn>
+            >Events</v-btn>
           </template>
           <v-list>
             <v-list-item
-              v-for="(blogItems, index_blogs) in blogItems"
+              v-for="(eventsItems, index_blogs) in eventsItems"
               :key="index_blogs"
-              @click="goto(blogItems.name)"
+              @click="goto(eventsItems.name)"
             >
-              <v-list-item-title>{{ blogItems.title }}</v-list-item-title>
+              <v-list-item-title>{{ eventsItems.title }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
@@ -155,11 +155,11 @@ import _ from 'lodash'
 export default {
   data: () => ({
     // isUserLogin: this.$store.state.isUserLoggedIn,
-    blogItems: [
-      { title: 'Races', name: 'newsLetter' },
+    eventsItems: [
+      { title: 'Blogs', name: 'newsLetter' },
       // { title: 'Training', name: 'blog_training' },
       // { title: 'Club', name: 'blog_club' },
-      { title: 'PhotoAlbums', name: 'albums' },
+      { title: 'Photos', name: 'albums' },
       { title: 'Videos', name: 'videos' }
     ],
     dataItems: [
@@ -183,13 +183,13 @@ export default {
       },
       {
         action: 'blogs',
-        title: 'BLOGS',
+        title: 'Events',
         active: false,
         enabled: true,
         login_required: false,
         items: [
-          { title: 'Races', name: 'newsLetter', enabled: true },
-          { title: 'PhotoAlbums', name: 'albums', enabled: true },
+          { title: 'Blogs', name: 'newsLetter', enabled: true },
+          { title: 'Photos', name: 'albums', enabled: true },
           { title: 'Videos', name: 'videos', enabled: true },
           { title: 'DISABLED', name: 'DISABLED', enabled: false }
         ]
@@ -276,16 +276,20 @@ export default {
   },
   methods: {
     goto (routerName) {
-      this.$router.push({
-        name: routerName
-      })
+      if (this.$route.name !== routerName) {
+        this.$router.push({
+          name: routerName
+        })
+      }
     },
     logout () {
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
-      this.$router.push({
-        name: 'home'
-      })
+      if (this.$route.name !== 'home') {
+        this.$router.push({
+          name: 'home'
+        })
+      }
     }
   }
 }

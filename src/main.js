@@ -26,7 +26,7 @@ sync(store, router)
 new Vue({
   el: '#app',
   created () {
-    AOS.init({ disable: 'phone' })
+    AOS.init({ disable: 'mobile' })
   },
   router,
   store,

@@ -31,7 +31,6 @@
           </v-flex>
         </v-layout>
 </template>
-
 <script>
 // import {mapState} from 'vuex'
 
@@ -99,7 +98,6 @@ export default {
     }
   },
   async mounted () {
-    // TODO get all news
   }
 }
 </script>

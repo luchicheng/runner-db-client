@@ -6,11 +6,13 @@
   >
     <v-fade-transition mode="out-in">
       <v-row>
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card>
             <v-img
               :src="getImgUrl('jersey2018.jpg')"
+              contain
               class="grey darken-4"
+              height="525"
             ></v-img>
             <v-card-title class="title">
               2018 Jersey - (SOLD OUT)
@@ -18,12 +20,13 @@
           </v-card>
         </v-col>
 
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card>
             <v-img
               :src="getImgUrl('jersey2019.jpg')"
               contain
               class="grey darken-4"
+              height="525"
             ></v-img>
             <v-card-title class="title">
               2019 Jersey - (SOLD OUT)
@@ -31,10 +34,11 @@
           </v-card>
         </v-col>
 
-        <v-col cols="12">
+        <v-col cols="12" sm="12">
           <v-card>
             <v-img
               :src="getImgUrl('jersey2019-2.jpg')"
+              contain
               class="grey darken-4"
             ></v-img>
             <v-card-title class="title">
@@ -42,9 +46,10 @@
             </v-card-title>
           </v-card>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card>
             <v-img
+              contain
               :src="getImgUrl('jersey2020.jpg')"
               class="grey darken-4"
             ></v-img>
@@ -53,9 +58,10 @@
             </v-card-title>
           </v-card>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card>
             <v-img
+              contain
               :src="getImgUrl('race2018.jpg')"
               class="grey darken-4"
             ></v-img>
@@ -64,53 +70,62 @@
             </v-card-title>
           </v-card>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card>
             <v-img
+              contain
               :src="getImgUrl('race2019.jpg')"
               class="grey darken-4"
+              height="525"
             ></v-img>
             <v-card-title class="title">
               Race Jersey 2019 - $40
             </v-card-title>
           </v-card>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card>
             <v-img
+              contain
               :src="getImgUrl('race2020.jpg')"
               class="grey darken-4"
+              height="525"
             ></v-img>
             <v-card-title class="title">
               Race Jersey 2020 - $40
             </v-card-title>
           </v-card>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card>
             <v-img
+              contain
               :src="getImgUrl('race2020-1.jpg')"
               class="grey darken-4"
+              height="525"
             ></v-img>
             <v-card-title class="title">
               Race Jersey 2020 - $40
             </v-card-title>
           </v-card>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card>
             <v-img
+              contain
               :src="getImgUrl('race2020-2.jpg')"
               class="grey darken-4"
+              height="525"
             ></v-img>
             <v-card-title class="title">
               Race Jersey Boston - 1st time BQer only
             </v-card-title>
           </v-card>
         </v-col>
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card>
             <v-img
+              contain
               :src="getImgUrl('hat2019.jpg')"
               class="grey darken-4"
             ></v-img>
