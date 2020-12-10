@@ -200,7 +200,7 @@ export default {
 
     async deleteItem (item) {
       const index = this.users.indexOf(item)
-      if (confirm('Are you sure you want to delete this item?')) {
+      if (confirm('this action will remove linked Runner record as well, Are you sure you want to delete this user? ')) {
         // TODO call backend
         await UsersService.delete(item.id)
         this.users.splice(index, 1)

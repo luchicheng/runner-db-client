@@ -31,7 +31,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols="6">
+        <v-col cols="12">
           <v-card>
             <v-img
               :src="getImgUrl('jersey2019-2.jpg')"
