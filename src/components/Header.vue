@@ -18,7 +18,7 @@
           <template v-slot:activator="{ on }">
             <v-btn text dark
               v-on="on"
-            >Events</v-btn>
+            >GROUP</v-btn>
           </template>
           <v-list>
             <v-list-item
@@ -157,10 +157,9 @@ export default {
     // isUserLogin: this.$store.state.isUserLoggedIn,
     eventsItems: [
       { title: 'Blogs', name: 'newsLetter' },
-      // { title: 'Training', name: 'blog_training' },
-      // { title: 'Club', name: 'blog_club' },
       { title: 'Photos', name: 'albums' },
-      { title: 'Videos', name: 'videos' }
+      { title: 'Videos', name: 'videos' },
+      { title: 'Coaches', name: 'coaches' }
     ],
     dataItems: [
       { title: 'Runners', name: 'runners' },
@@ -183,15 +182,15 @@ export default {
       },
       {
         action: 'blogs',
-        title: 'Events',
+        title: 'GROUP',
         active: false,
         enabled: true,
         login_required: false,
         items: [
           { title: 'Blogs', name: 'newsLetter', enabled: true },
           { title: 'Photos', name: 'albums', enabled: true },
-          { title: 'Videos', name: 'videos', enabled: true },
-          { title: 'DISABLED', name: 'DISABLED', enabled: false }
+          { title: 'Video', name: 'videos', enabled: true },
+          { title: 'Coaches', name: 'coaches', enabled: true }
         ]
       },
       {
