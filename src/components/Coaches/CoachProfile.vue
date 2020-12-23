@@ -17,7 +17,7 @@
       </v-list-item>
     </v-card-subtitle>
     <v-card-text class="text--primary">
-      <div class="text-lg-left">{{coach.desc}}</div>
+      <div v-for="value in coach.desc" class="text-lg-left" v-bind:key="value">{{value}}</div>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="title text-lg-left">{{coach.nickName}}'s Bio</v-list-item-title>
