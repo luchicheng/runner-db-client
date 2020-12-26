@@ -62,7 +62,22 @@
             </v-list-item>
           </v-list>
         </v-menu>
-        <v-btn text dark :to="{ name: 'shopping' }"> Shopping </v-btn>
+        <v-menu open-on-hover close-on-click close-on-content-click offset-y>
+          <template v-slot:activator="{ on }">
+            <v-btn text dark
+              v-on="on"
+            >Shopping</v-btn>
+          </template>
+          <v-list>
+            <v-list-item
+              v-for="(shopItem, index_shop) in shopItems"
+              :key="index_shop"
+              @click="goto(shopItem.name)"
+            >
+              <v-list-item-title>{{ shopItem.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </v-toolbar-items>
       <v-toolbar-items>
          <v-btn v-if="$store.state.user && $store.state.user.userType == 'A'" text dark :to="{ name: 'members' }"> Membership </v-btn>
@@ -71,21 +86,22 @@
       <v-toolbar-items>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'login' }"> Login </v-btn>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'register' }"> Sign Up </v-btn>
+        <shopping-cart/>
         <v-menu open-on-hover v-if="$store.state.isUserLoggedIn" offset-y>
           <template v-slot:activator="{ on, attrs }">
-          <v-chip
-            class="ma-4"
-            color="#0D47A1"
-            text-color="white"
-            v-bind="attrs"
-            v-on="on"
-          >
-            <v-avatar left>
-              <v-icon>mdi-account-circle</v-icon>
-            </v-avatar>
-            {{loginUserType}} {{$store.state.user ? $store.state.user.name : ""}}
-          </v-chip>
-        </template>
+            <v-chip
+              class="ma-4"
+              color="#0D47A1"
+              text-color="white"
+              v-bind="attrs"
+              v-on="on"
+            >
+              <v-avatar left>
+                <v-icon>mdi-account-circle</v-icon>
+              </v-avatar>
+              {{loginUserType}} {{$store.state.user ? $store.state.user.name : ""}}
+            </v-chip>
+          </template>
           <v-list>
             <v-list-item>
               <v-list-item-content>
@@ -152,7 +168,11 @@
 
 <script>
 import _ from 'lodash'
+import ShoppingCart from '@/components/shopping/ShoppingCart'
 export default {
+  components: {
+    ShoppingCart
+  },
   data: () => ({
     // isUserLogin: this.$store.state.isUserLoggedIn,
     eventsItems: [
@@ -166,6 +186,10 @@ export default {
       { title: 'Races', name: 'races' },
       { title: 'TrainingData', name: 'searchTrainingRecords' },
       { title: 'RaceData', name: 'searchRaceRecords' }
+    ],
+    shopItems: [
+      { title: 'Mechandise', name: 'shoppingMechandise' },
+      { title: 'Payment', name: 'shoppingService' }
     ],
     topItems: [
       { title: 'Current Year', name: 'topRaceRecordsCY' },
@@ -228,14 +252,19 @@ export default {
       {
         action: 'shopping',
         title: 'SHOPPING',
-        active: true,
+        active: false,
         enabled: true,
         login_required: false,
-        name: 'shopping'
+        items: [
+          { title: 'Mechandise', name: 'shoppingMechandise', enabled: true },
+          { title: 'Payment', name: 'shoppingService', enabled: true }
+        ]
       }
     ]
   }),
   computed: {
+    inCart: function () { return this.$store.getters.inCart },
+    numInCart: function () { return this.inCart.length },
     displayedMenus: function () {
       const isUserLogin = this.$store.state.isUserLoggedIn
       // console.log('***************begin' + isUserLogin)

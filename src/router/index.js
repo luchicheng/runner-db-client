@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Register from '@/components/Users/Register'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
-import Shopping from '@/components/Shopping'
+import Mechandise from '@/components/shopping/Merchandise'
+import Service from '@/components/shopping/Service'
 import Songs from '@/components/Songs/Index'
 import CreateSong from '@/components/CreateSong'
 import EditSong from '@/components/EditSong'
@@ -43,7 +44,8 @@ export default new Router({
     { path: '/runners', name: 'runners', component: Runners },
     { path: '/races', name: 'races', component: Races },
     { path: '/members', name: 'members', component: Users },
-    { path: '/shopping', name: 'shopping', component: Shopping },
+    { path: '/shoppingMechandise', name: 'shoppingMechandise', component: Mechandise },
+    { path: '/shoppingService', name: 'shoppingService', component: Service },
     { path: '/coaches', name: 'coaches', component: Coaches },
     { path: '/passwordReset', name: 'passwordReset', component: PasswordReset },
     { path: '/myInfo', name: 'myInfo', component: MyInfo },
