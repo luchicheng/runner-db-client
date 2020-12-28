@@ -1,9 +1,9 @@
 <template>
   <v-container>
-    <h2 class="display-2 mb-4">Payment service</h2>
+    <h2 class="display-2 mb-4">Payment Service</h2>
     <div class="font-weight-light text-left mb-2">All payment currency is CAD.</div>
-    <div class="font-weight-light text-left mb-2">After select, please goto shopping cart at top right corner to review and checkout.</div>
-    <div class="font-weight-light text-left mb-2">Each click accumulate quantity in shopping cart.</div>
+    <div class="font-weight-light text-left mb-2">After selection, please goto shopping cart at top right corner to review and checkout.</div>
+    <div class="font-weight-light text-left mb-2">Each click will add quantity in shopping cart.</div>
     <v-divider></v-divider>
     <v-layout row wrap>
       <template v-for="(service, index) in forSaleService">

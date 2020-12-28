@@ -60,21 +60,23 @@ export default new Vuex.Store({
       // state.inCart.push(invId)
       // console.log('end of ADD_TO_CART:', state.inCart)
     },
-    UPDATE_TO_CART (state, newQty) {
-      let find = state.inCart.find(o => o.invId === newQty.invId)
+    UPDATE_TO_CART (state, newObj) {
+      let find = state.inCart.find(o => o.invId === newObj.invId)
       if (find) {
         // var index = state.inCart.indexOf(find)
         // let newObj = Object.assign({}, find)
         // newObj.qty = find.qty + 1
         // state.inCart[index] = newObj
-        find.qty = newQty.qty
+        if (newObj.qty) { find.qty = newObj.qty }
+        if (newObj.comment) { find.comment = newObj.comment }
         state.inCart.push({})
         state.inCart.pop()
       }
       // state.inCart.push(invId)
-      console.log('end of UPDATE_TO_CART:', state.inCart)
+      // console.log('end of UPDATE_TO_CART:', state.inCart)
     },
-    REMOVE_FROM_CART (state, index) { state.inCart.splice(index, 1) }
+    REMOVE_FROM_CART (state, index) { state.inCart.splice(index, 1) },
+    CLEAR_CART (state) { state.inCart = [] }
   },
   actions: {
     setToken ({commit}, token) {
@@ -84,7 +86,8 @@ export default new Vuex.Store({
       commit('setUser', user)
     },
     addToCart (context, invId) { context.commit('ADD_TO_CART', invId) },
-    updateToCart (context, newQty) { context.commit('UPDATE_TO_CART', newQty) },
-    removeFromCart (context, index) { context.commit('REMOVE_FROM_CART', index) }
+    updateToCart (context, newObj) { context.commit('UPDATE_TO_CART', newObj) },
+    removeFromCart (context, index) { context.commit('REMOVE_FROM_CART', index) },
+    clearCart (context) { context.commit('CLEAR_CART') }
   }
 })

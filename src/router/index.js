@@ -5,11 +5,13 @@ import Login from '@/components/Login'
 import Home from '@/components/Home'
 import Mechandise from '@/components/shopping/Merchandise'
 import Service from '@/components/shopping/Service'
+import PaymentSuccess from '@/components/shopping/PaymentSuccess'
 import Songs from '@/components/Songs/Index'
 import CreateSong from '@/components/CreateSong'
 import EditSong from '@/components/EditSong'
 import ViewSong from '@/components/ViewSong/Index'
 import Runners from '@/components/Runners/Index'
+import MyPayments from '@/components/MyPayments/Index'
 import Races from '@/components/Races/Index'
 import Users from '@/components/Users/Index'
 import PasswordReset from '@/components/Users/PasswordReset'
@@ -42,10 +44,12 @@ export default new Router({
     { path: '/runners/:runnerId/training', name: 'runner-training', component: RunnerTrainingRecord },
     { path: '/runners/:runnerId/race', name: 'runner-race', component: RunnerRaceRecord },
     { path: '/runners', name: 'runners', component: Runners },
+    { path: '/myPayments', name: 'myPayments', component: MyPayments },
     { path: '/races', name: 'races', component: Races },
     { path: '/members', name: 'members', component: Users },
     { path: '/shoppingMechandise', name: 'shoppingMechandise', component: Mechandise },
     { path: '/shoppingService', name: 'shoppingService', component: Service },
+    { path: '/paymentSuccess', name: 'paymentSuccess', component: PaymentSuccess },
     { path: '/coaches', name: 'coaches', component: Coaches },
     { path: '/passwordReset', name: 'passwordReset', component: PasswordReset },
     { path: '/myInfo', name: 'myInfo', component: MyInfo },

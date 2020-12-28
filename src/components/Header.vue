@@ -115,6 +115,11 @@
             </v-list-item>
             <v-list-item>
               <v-list-item-content>
+                <v-list-item-title @click="goto( 'myPayments' )">My Payments</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-content>
                 <v-list-item-title @click="logout">Logout</v-list-item-title>
               </v-list-item-content>
             </v-list-item>
@@ -267,24 +272,14 @@ export default {
     numInCart: function () { return this.inCart.length },
     displayedMenus: function () {
       const isUserLogin = this.$store.state.isUserLoggedIn
-      // console.log('***************begin' + isUserLogin)
-      // console.log(this.items)
-      // console.log('*********************end')
-      // var r = _.pickBy(this.items, function (i) {
       var r = this.items.filter(function (i) {
         return (i.enabled && (!i.login_required || isUserLogin))
       })
-      // console.log('***************begin r1')
-      // console.log(r)
-      // console.log('*********************end r1')
       r.forEach((obj, objIdx) => {
         obj.items = _.pickBy(obj.items, function (i) {
           return (i.enabled && (!i.login_required || isUserLogin))
         })
       })
-      // console.log('***************begin r2')
-      // console.log(r)
-      // console.log('*********************end r2')
       return r
     },
     loginUserType: function () {

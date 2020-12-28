@@ -96,7 +96,9 @@ export default {
   },
   async mounted () {
     try {
-      this.validUsers = (await UsersService.index()).data
+      if (this.$store.state.user && this.$store.state.user.userType === 'A') {
+        this.validUsers = (await UsersService.index()).data
+      }
     } catch (err) {
       console.log(err)
     }

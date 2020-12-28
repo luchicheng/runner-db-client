@@ -21,7 +21,7 @@
       autocomplete="off">
       <v-card>
         <v-card-title class="headline">
-          Shopping cart
+          Shopping Cart
         </v-card-title>
         <v-card-text>
           <v-list two-line>
@@ -42,7 +42,11 @@
                 <v-list-item>
                   <v-text-field label="Quantity" reverse :value="product.qty"
                     :rules="[numberRule]"
-                    @change="updateToCart(product.invId, $event)"></v-text-field>
+                    @change="updateToCartQty(product.invId, $event)"></v-text-field>
+                </v-list-item>
+                <v-list-item>
+                  <v-text-field label="Comment" reverse :value="product.comment"
+                    @change="updateToCartCmt(product.invId, $event)"></v-text-field>
                 </v-list-item>
                 <v-list-item>
                   {{product.price * product.qty}}$
@@ -82,10 +86,14 @@
 </template>
 
 <script>
+import PaymentService from '@/services/PaymentService'
+let stripe = window.Stripe(process.env.NODE_ENV === 'production' ? 'pk_live_BAv4X0q2SplDJB89oSVG2pRc' : 'pk_test_6fMfJdRQBuh8xIbqmNIySq5r')
+
 export default {
   name: 'shoppingCart',
   data () {
     return {
+      baseURL: process.env.NODE_ENV === 'production' ? 'https://91camp.ca/#' : 'http://localhost:8080/#',
       dialog: false,
       numberRule: v => {
         if (!isNaN(parseFloat(v)) && v >= 0 && v <= 999) return true
@@ -103,7 +111,7 @@ export default {
       return require('../../assets/shopping/' + pic)
     },
     removeFromCart (index) { this.$store.dispatch('removeFromCart', index) },
-    updateToCart (invId, qty) {
+    updateToCartQty (invId, qty) {
       // console.log('updateToCart:', invId, qty)
       if (!isNaN(parseFloat(qty)) && qty >= 0 && qty <= 999) {
         this.$store.dispatch('updateToCart', {invId: invId, qty: qty})
@@ -111,8 +119,91 @@ export default {
         alert('Quantity update successfully!')
       }
     },
-    checkout () {
+    updateToCartCmt (invId, comment) {
+      // console.log('updateToCart:', invId, qty)
+      if (comment) {
+        this.$store.dispatch('updateToCart', {invId: invId, comment: comment})
+        // this.total = this.getTotal()
+        alert('Comment update successfully!')
+      }
+    },
+    async checkout () {
+      if (!this.$refs.form.validate()) {
+        return
+      }
+      const isUserLogin = this.$store.state.isUserLoggedIn
+      if (!isUserLogin) {
+        this.dialog = false
+        alert('Please login first.')
+        this.$router.push({
+          name: 'login'
+        })
+        return
+      } else {
+        if (!this.$store.state.user.email2) {
+          alert('Please update your profile with email adress.')
+          this.dialog = false
+          this.$router.push({
+            name: 'myInfo'
+          })
+          return
+        }
+      }
       this.dialog = false
+      // 'http://localhost:8080/#' + path
+      let currentLocation = this.baseURL + this.$route.path
+      let successLocation = this.baseURL + 'paymentSuccess' + '?session_id={CHECKOUT_SESSION_ID}'
+      // alert('current router' + util.inspect(this.$route.path))
+      /*
+      * When the customer clicks on the button, redirect
+      * them to Checkout.
+      */
+      // stripe.redirectToCheckout({
+      //   lineItems: [{price: 'price_1I2e3Z2zJQsBba6fm5i0XHpo', quantity: 3}],
+      //   mode: 'payment',
+      //   /*
+      //   * Do not rely on the redirect to the successUrl for fulfilling
+      //   * purchases, customers may not always reach the success_url after
+      //   * a successful payment.
+      //   * Instead use one of the strategies described in
+      //   * https://stripe.com/docs/payments/checkout/fulfill-orders
+      //   */
+      //   successUrl: window.location.protocol + '//test',
+      //   cancelUrl: window.location.protocol + '//tttttttttttttttttttt'
+      // })
+      //   .then(function (result) {
+      //     if (result.error) {
+      //     /*
+      //     * If `redirectToCheckout` fails due to a browser or network
+      //     * error, display the localized error message to your customer.
+      //     */
+      //       alert(result.error.message)
+      //     }
+      //   })
+      try {
+        const newSession = await PaymentService.createCheckoutSession({
+          inCart: this.inCart,
+          currentLocation: currentLocation,
+          successLocation: successLocation
+        })
+        // console.log('session:', newSession)
+        // stripe.redirectToCheckout({ sessionId: 'cs_test_a1mt2C08xglNFpDkECXYMpDFrfu7qXNBBCuC3N7J3z27xB5mPK1ZOt19LA' })
+        stripe.redirectToCheckout({ sessionId: newSession.data.id })
+          .then(function (result) {
+          // If `redirectToCheckout` fails due to a browser or network
+          // error, you should display the localized error message to your
+          // customer using `error.message`.
+            if (result.error) {
+              alert(result.error.message)
+            }
+          })
+          .catch(function (error) {
+            console.error('Error:', error)
+          })
+      } catch (err) {
+        // console.log(err)
+        alert(err.response.data.error)
+      }
     }
   },
   mounted () {
