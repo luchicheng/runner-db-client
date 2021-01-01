@@ -55,11 +55,17 @@
         <v-responsive
           class="mx-auto title font-weight-light mb-8"
           max-width="720"
-        >91 Running Camp-91集训营于2017年9月1日成立.致力于团结友爱,互帮互助,秉持正确认真的态度 ,通过集体学习马拉松训练方法, 定期组织安排集训等方式, 为提高个人马拉松成绩提供一个健康积极与严肃认真的共享平台 .</v-responsive>
-
-        <v-avatar class="elevation-12 mb-12" size="128">
-          <v-img :src="require('@/assets/rico.png')"></v-img>
-        </v-avatar>
+        >91 Running Camp-91集训营于2017年9月1日成立。
+        </v-responsive>
+        <v-responsive
+          class="mx-auto title font-weight-light mb-8"
+          max-width="720"
+        >
+        致力于推广以及提高马拉松以及户外运动水平，团结友爱，互帮互助，秉持科学严谨的态度，通过集体学习马拉松训练方法， 定期组织安排集训等方式， 为提高个人马拉松成绩提供一个健康积极与严肃认真的共享平台。
+        </v-responsive>
+        <div align="center">
+          <v-img :src="require('@/assets/91logo_lightblue.png')" width="128"></v-img>
+        </div>
 
         <div></div>
 
@@ -156,7 +162,9 @@
     <section id="contact-us">
       <v-container class="text-center">
         <h2 class="display-1 mb-3 text-uppercase text-center">Contact Us</h2>
-        <v-img :src="require('@/assets/wechat2.png')" width="200"></v-img>
+        <div align="center">
+          <v-img :src="require('@/assets/wechat2.png')" width="200"></v-img>
+        </div>
       </v-container>
     </section>
   </v-content>
