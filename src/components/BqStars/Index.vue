@@ -7,7 +7,7 @@
         <StarProfile :star="s"/>
       </v-flex>
       <v-flex
-        v-for="n in 100-stars.length"
+        v-for="n in 40-stars.length"
         :key="n+stars.length" md2
       >
         <StarProfile/>
@@ -24,7 +24,7 @@ export default {
     return {
       stars: [
         { name: 'Luchi Cheng', desc: '', nickName: '', img: 'luchi.jpg', year: '2019', serielNumber: '91 BM-001', bib: '2319', time: '2:53:21' },
-        { name: 'Jun Zhang', desc: '', nickName: '', img: 'jun.jpg', year: '2019', serielNumber: '91 BM-002', bib: '4973', time: '2:59:30' },
+        { name: 'Jun Zhang', desc: '', nickName: '', img: 'jun_star.jpg', year: '2019', serielNumber: '91 BM-002', bib: '4973', time: '2:59:30' },
         { name: 'Rocky Lu', desc: '', nickName: '', img: 'rocky.jpg', year: '2019', serielNumber: '91 BM-003', bib: '7418', time: '3:13:50' },
         { name: 'Kevin Tan', desc: '', nickName: '', img: 'kt.jpg', year: '2019', serielNumber: '91 BM-004', bib: '9216', time: '3:13:17' },
         { name: 'Andy Liu', desc: '', nickName: '', img: 'andy.jpg', year: '2019', serielNumber: '91 BM-005', bib: '9327', time: '3:12:48' },

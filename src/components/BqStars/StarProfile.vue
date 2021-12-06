@@ -53,7 +53,7 @@
                         <v-list-item-title class="text-h6">
                           {{ star.name }}{{ star.nickName }} <p class="font-weight-black">{{ star.serielNumber }}</p>
                         </v-list-item-title>
-                        <v-list-item-subtitle>参赛年份：{{ star.year }}</v-list-item-subtitle>
+                        <v-list-item-subtitle>首次参赛年份：{{ star.year }}</v-list-item-subtitle>
                         <v-list-item-subtitle>参赛Bib#：{{ star.bib }}</v-list-item-subtitle>
                         <v-list-item-subtitle>完赛时间：{{ star.time }}</v-list-item-subtitle>
                         <div class="text-caption font-weight-medium font-italic text-left">{{ star.desc }}</div>
