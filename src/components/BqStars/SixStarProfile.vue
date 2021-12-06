@@ -24,7 +24,7 @@
             tile
           >
             <v-img
-              height="100%"
+              height="200"
               src="https://assets-global.website-files.com/5f58a4616a9e71d63ca059c8/5f58a4616a9e714585a05a36_sixstar-medal-berlin-p-1080.jpeg"
             >
             </v-img>

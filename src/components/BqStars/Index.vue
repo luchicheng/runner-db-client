@@ -1,7 +1,9 @@
 <template ma-0>
   <v-container class="back" grid-list-md text-md-center fluid fill-height>
     <v-layout row>
-      <p class="white--text align-end">Hall of Fame - Abbott World Marathon Majors finisher and Boston Marathon finisher</p>
+      <v-flex>
+        <p class="white--text align-end">Hall of Fame - Abbott World Marathon Majors finisher and Boston Marathon finisher</p>
+      </v-flex>
     </v-layout>
     <v-layout row>
       <v-flex v-for="(six, index) in six_stars"
@@ -32,8 +34,8 @@ export default {
   data () {
     return {
       six_stars: [
-        { name: 'Wei Zhang', desc: '', nickName: '', img: 'wei.jpg', year: '2018', tokyo_year: '2018', berlin_year: '2018', london_year: '2018', chi_year: '2018', boston_year: '2018', nyc_year: '2018' },
-        { name: 'Rico Weng', desc: '', nickName: '', img: 'rico_star.jpg', year: '2018', tokyo_year: '2018', berlin_year: '2018', london_year: '2018', chi_year: '2018', boston_year: '2018', nyc_year: '2018' }
+        { name: 'Wei Zhang', desc: '', nickName: '', img: 'wei.jpg', year: '2017', tokyo_year: '2017', berlin_year: '2017', london_year: '2017', chi_year: '2016', boston_year: '2016', nyc_year: '2017' },
+        { name: 'Rico Weng', desc: '', nickName: '', img: 'rico_star.jpg', year: '2018', tokyo_year: '2018', berlin_year: '2017', london_year: '2017', chi_year: '2016', boston_year: '2017', nyc_year: '2017' }
       ],
       stars: [
         { name: 'Luchi Cheng', desc: '', nickName: '', img: 'luchi.jpg', year: '2019', serielNumber: '91 BM-001', bib: '2319', time: '2:53:21' },
