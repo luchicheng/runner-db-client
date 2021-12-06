@@ -1,14 +1,22 @@
 <template ma-0>
   <v-container class="back" grid-list-md text-md-center fluid fill-height>
     <v-layout row>
-      <v-flex v-for="(s, index) in stars"
+      <p class="white--text align-end">Hall of Fame - Abbott World Marathon Majors finisher and Boston Marathon finisher</p>
+    </v-layout>
+    <v-layout row>
+      <v-flex v-for="(six, index) in six_stars"
         :key="index" md2
+      >
+        <SixStarProfile :star="six"/>
+      </v-flex>
+      <v-flex v-for="(s, index) in stars"
+        :key="six_stars.length+index" md2
       >
         <StarProfile :star="s"/>
       </v-flex>
       <v-flex
         v-for="n in 40-stars.length"
-        :key="n+stars.length" md2
+        :key="six_stars.length+n+stars.length" md2
       >
         <StarProfile/>
       </v-flex>
@@ -18,10 +26,15 @@
 
 <script>
 import StarProfile from './StarProfile'
+import SixStarProfile from './SixStarProfile'
 
 export default {
   data () {
     return {
+      six_stars: [
+        { name: 'Wei Zhang', desc: '', nickName: '', img: 'wei.jpg', year: '2018', tokyo_year: '2018', berlin_year: '2018', london_year: '2018', chi_year: '2018', boston_year: '2018', nyc_year: '2018' },
+        { name: 'Rico Weng', desc: '', nickName: '', img: 'rico_star.jpg', year: '2018', tokyo_year: '2018', berlin_year: '2018', london_year: '2018', chi_year: '2018', boston_year: '2018', nyc_year: '2018' }
+      ],
       stars: [
         { name: 'Luchi Cheng', desc: '', nickName: '', img: 'luchi.jpg', year: '2019', serielNumber: '91 BM-001', bib: '2319', time: '2:53:21' },
         { name: 'Jun Zhang', desc: '', nickName: '', img: 'jun_star.jpg', year: '2019', serielNumber: '91 BM-002', bib: '4973', time: '2:59:30' },
@@ -45,7 +58,7 @@ export default {
   async mounted () {
   },
   components: {
-    StarProfile
+    StarProfile, SixStarProfile
   }
 }
 </script>

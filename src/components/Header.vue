@@ -185,7 +185,7 @@ export default {
       { title: 'Photos', name: 'albums' },
       { title: 'Videos', name: 'videos' },
       { title: 'Coaches', name: 'coaches' },
-      { title: 'Boston Stars', name: 'bqstars' }
+      { title: 'Hall of Fame', name: 'halloffame' }
     ],
     dataItems: [
       { title: 'Runners', name: 'runners' },
@@ -221,7 +221,7 @@ export default {
           { title: 'Photos', name: 'albums', enabled: true },
           { title: 'Video', name: 'videos', enabled: true },
           { title: 'Coaches', name: 'coaches', enabled: true },
-          { title: 'Boston Stars', name: 'bqstars', enabled: true }
+          { title: 'Hall of Fame', name: 'halloffame', enabled: true }
         ]
       },
       {
