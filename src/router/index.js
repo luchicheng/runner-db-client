@@ -20,6 +20,7 @@ import NewsLetter from '@/components/NewsLetter/Index'
 import Videos from '@/components/Videos/Index'
 import Albums from '@/components/Albums/Index'
 import Coaches from '@/components/Coaches/Index'
+import BqStars from '@/components/BqStars/Index'
 import AlbumsDetailPhoto from '@/components/Albums/AlbumsDetailPhoto'
 import AlbumsDetail from '@/components/Albums/AlbumsDetail'
 import RunnerTrainingRecord from '@/components/RunnerTrainingRecords/Index'
@@ -51,6 +52,7 @@ export default new Router({
     { path: '/shoppingService', name: 'shoppingService', component: Service },
     { path: '/paymentSuccess', name: 'paymentSuccess', component: PaymentSuccess },
     { path: '/coaches', name: 'coaches', component: Coaches },
+    { path: '/bqstars', name: 'bqstars', component: BqStars },
     { path: '/passwordReset', name: 'passwordReset', component: PasswordReset },
     { path: '/myInfo', name: 'myInfo', component: MyInfo },
     { path: '/newsLetter', name: 'newsLetter', component: NewsLetter },

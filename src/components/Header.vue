@@ -184,7 +184,8 @@ export default {
       { title: 'Blogs', name: 'newsLetter' },
       { title: 'Photos', name: 'albums' },
       { title: 'Videos', name: 'videos' },
-      { title: 'Coaches', name: 'coaches' }
+      { title: 'Coaches', name: 'coaches' },
+      { title: 'Boston Stars', name: 'bqstars' }
     ],
     dataItems: [
       { title: 'Runners', name: 'runners' },
@@ -219,7 +220,8 @@ export default {
           { title: 'Blogs', name: 'newsLetter', enabled: true },
           { title: 'Photos', name: 'albums', enabled: true },
           { title: 'Video', name: 'videos', enabled: true },
-          { title: 'Coaches', name: 'coaches', enabled: true }
+          { title: 'Coaches', name: 'coaches', enabled: true },
+          { title: 'Boston Stars', name: 'bqstars', enabled: true }
         ]
       },
       {
