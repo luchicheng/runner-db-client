@@ -4,7 +4,7 @@
             <div>
               <v-card class="my-3">
                 <v-img
-                  src="https://i.postimg.cc/NMZDFqjz/rect20200321.png"
+                  :src="getImgUrl('2022_sponsor7_low.png')"
                 ></v-img>
                   <v-container fill-height fluid>
                     <v-layout>
@@ -30,6 +30,11 @@ export default {
     }
   },
   async mounted () {
+  },
+  methods: {
+    getImgUrl (pic) {
+      return require('../../assets/' + pic)
+    }
   }
 }
 </script>
