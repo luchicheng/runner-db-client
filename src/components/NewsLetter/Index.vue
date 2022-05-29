@@ -2,7 +2,7 @@
   <v-layout row wrap align-center>
           <v-flex sm="8" cols="12">
             <div v-for="article in articles" :key="article.title">
-              <v-card class="my-3" hover data-aos="zoom-in" data-aos-easing="ease">
+              <v-card class="my-3" hover data-aos="zoom-in" data-aos-easing="ease" v-bind:href="article.url" target="_blank">
                 <v-img
                   height="350px"
                   v-bind:src="article.urlToImage"
@@ -23,8 +23,7 @@
                   </v-chip>
                   <v-spacer></v-spacer>
                   <v-spacer></v-spacer>
-
-                  <v-btn small replace color="info" v-bind:href="article.url" target="_blank" >Read More</v-btn>
+                  <v-btn small replace color="info">Read More</v-btn>
                 </v-card-actions>
               </v-card>
             </div>
