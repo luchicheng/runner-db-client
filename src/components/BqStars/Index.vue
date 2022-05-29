@@ -78,7 +78,7 @@ export default {
         { name: 'Xin, Fu Nu', desc: '', nickName: '', img: '91BM-038-FunuXin.jpg', year: '2022', serielNumber: '91 BM-038', bib: '20306', time: '3:50:12' },
         { name: 'Sun, Aaron', desc: '', nickName: '', img: '91BM-039-AaronSun.jpg', year: '2022', serielNumber: '91 BM-039', bib: '26609', time: '3:50:43' },
         { name: 'Zhang, Chunfang', desc: '', nickName: '', img: '91BM-040-ChunfangZhang.jpg', year: '2022', serielNumber: '91 BM-040', bib: '21874', time: '3:54:02' },
-         { name: 'Lai, Winnie', desc: '', nickName: '', img: '91BM-041-WinieLai.jpg', year: '2022', serielNumber: '91 BM-041', bib: '18189', time: '3:57:26' },
+        { name: 'Lai, Winnie', desc: '', nickName: '', img: '91BM-041-WinieLai.jpg', year: '2022', serielNumber: '91 BM-041', bib: '18189', time: '3:57:26' },
         { name: 'Yin, Yan', desc: '', nickName: '', img: '91BM-042-YanYin.jpg', year: '2022', serielNumber: '91 BM-042', bib: '16816', time: '4:00:26' },
         { name: 'Huang, Yan Jian', desc: '', nickName: '', img: '91BM-043-YanjianHuang.jpg', year: '2022', serielNumber: '91 BM-043', bib: '12897', time: '4:09:44' },
         { name: 'Chen, Ping', desc: '', nickName: '', img: '91BM-044_PingChen.jpg', year: '2022', serielNumber: '91 BM-044', bib: '21748', time: '4:35:02' },
