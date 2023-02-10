@@ -4,7 +4,7 @@
             <div>
               <v-card class="my-3">
                 <v-img
-                  :src="getImgUrl('2022_sponsor7_low.png')"
+                  :src="getImgUrl('sponsors_low.png')"
                 ></v-img>
                   <v-container fill-height fluid>
                     <v-layout>
