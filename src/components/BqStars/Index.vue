@@ -17,7 +17,7 @@
         <StarProfile :star="s"/>
       </v-flex>
       <v-flex
-        v-for="n in 52-stars.length"
+        v-for="n in 64-stars.length"
         :key="six_stars.length+n+stars.length" md2
       >
         <StarProfile/>
@@ -34,8 +34,16 @@ export default {
   data () {
     return {
       six_stars: [
-        { name: 'Wei Zhang', desc: '', nickName: '', img: 'wei.jpg', year: '2017', tokyo_year: '2017', berlin_year: '2017', london_year: '2017', chi_year: '2016', boston_year: '2016', nyc_year: '2017' },
-        { name: 'Rico Weng', desc: '', nickName: '', img: 'rico_star.jpg', year: '2018', tokyo_year: '2018', berlin_year: '2017', london_year: '2017', chi_year: '2016', boston_year: '2017', nyc_year: '2017' }
+        { name: 'Wei Zhang', desc: '', nickName: '', img: 'wei.jpg', year: '2017', tokyo_year: '2017', berlin_year: '2016', london_year: '2017', chi_year: '2016', boston_year: '2017', nyc_year: '2017' },
+        { name: 'Rico Weng', desc: '', nickName: '', img: 'rico_star.jpg', year: '2018', tokyo_year: '2018', berlin_year: '2017', london_year: '2017', chi_year: '2016', boston_year: '2017', nyc_year: '2017' },
+        { name: 'Daniel Xiao', desc: '', nickName: '', img: 'daniel.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2022', chi_year: '2019', boston_year: '2021', nyc_year: '2021' },
+        { name: 'Laurel Zeng', desc: '', nickName: '', img: 'laurel.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2022', chi_year: '2019', boston_year: '2021', nyc_year: '2021' },
+        { name: 'Carol Yu', desc: '', nickName: '', img: 'carol.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2021', london_year: '2021', chi_year: '2019', boston_year: '2019', nyc_year: '2021' },
+        { name: 'Quan Jiang', desc: '', nickName: '', img: '91BM-023-QuanJiang.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2022', london_year: '2022', chi_year: '2022', boston_year: '2022', nyc_year: '2022' },
+        { name: 'Fu Nu Xin', desc: '', nickName: '', img: '91BM-038-FunuXin.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2022', london_year: '2022', chi_year: '2022', boston_year: '2022', nyc_year: '2022' },
+        { name: 'Steve Yang', desc: '', nickName: '', img: '91BM-020-GuopingYang.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2022', london_year: '2023', chi_year: '2018', boston_year: '2022', nyc_year: '2019' },
+        { name: 'Yi Xiao', desc: '', nickName: '', img: 'yi.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2021', chi_year: '2018', boston_year: '2019', nyc_year: '2018' },
+        { name: 'Kevin Tan', desc: '', nickName: '', img: 'kt.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2021', chi_year: '2018', boston_year: '2019', nyc_year: '2018' }
       ],
       stars: [
         { name: 'Luchi Cheng', desc: '', nickName: '', img: 'luchi.jpg', year: '2019', serielNumber: '91 BM-001', bib: '2319', time: '2:53:21' },
@@ -78,24 +86,24 @@ export default {
         { name: 'Xin, Fu Nu', desc: '', nickName: '', img: '91BM-038-FunuXin.jpg', year: '2022', serielNumber: '91 BM-038', bib: '20306', time: '3:50:12' },
         { name: 'Sun, Aaron', desc: '', nickName: '', img: '91BM-039-AaronSun.jpg', year: '2022', serielNumber: '91 BM-039', bib: '26609', time: '3:50:43' },
         { name: 'Zhang, Chunfang', desc: '', nickName: '', img: '91BM-040-ChunfangZhang.jpg', year: '2022', serielNumber: '91 BM-040', bib: '21874', time: '3:54:02' },
-         { name: 'Lai, Winnie', desc: '', nickName: '', img: '91BM-041-WinieLai.jpg', year: '2022', serielNumber: '91 BM-041', bib: '18189', time: '3:57:26' },
+        { name: 'Lai, Winnie', desc: '', nickName: '', img: '91BM-041-WinieLai.jpg', year: '2022', serielNumber: '91 BM-041', bib: '18189', time: '3:57:26' },
         { name: 'Yin, Yan', desc: '', nickName: '', img: '91BM-042-YanYin.jpg', year: '2022', serielNumber: '91 BM-042', bib: '16816', time: '4:00:26' },
         { name: 'Huang, Yan Jian', desc: '', nickName: '', img: '91BM-043-YanjianHuang.jpg', year: '2022', serielNumber: '91 BM-043', bib: '12897', time: '4:09:44' },
         { name: 'Chen, Ping', desc: '', nickName: '', img: '91BM-044_PingChen.jpg', year: '2022', serielNumber: '91 BM-044', bib: '21748', time: '4:35:02' },
         { name: 'Zhang, Yue', desc: '', nickName: '', img: '91BM-045-YueZhang.jpg', year: '2022', serielNumber: '91 BM-045', bib: '21197', time: '5:02:18' },
         { name: 'Chen, Yong Le', desc: '', nickName: '', img: '91BM-046-YongleChen.jpg', year: '2022', serielNumber: '91 BM-046', bib: '8162', time: '6:27:38' },
-		{ name: 'Hung, Clarence', desc: '', nickName: '', img: '91BM-047-ClarenceHung.jpg', year: '2023', serielNumber: '91 BM-047', bib: '495', time: '2:51:02' },
-		{ name: 'Guo, Benson', desc: '', nickName: '', img: '91BM-048-BensonGuo.jpg', year: '2023', serielNumber: '91 BM-048', bib: '3438', time: '2:51:48' },
-		{ name: 'Zhao, Allen', desc: '', nickName: '', img: '91BM-049-AllenZhao.jpg', year: '2023', serielNumber: '91 BM-049', bib: '8577', time: '2:57:32' },
-		{ name: 'Yu, Jim', desc: '', nickName: '', img: '91BM-050-JimYu.jpg', year: '2023', serielNumber: '91 BM-050', bib: '10793', time: '3:09:00' },
-		{ name: 'Cai, Max', desc: '', nickName: '', img: '91BM-051-MaxCai.jpg', year: '2023', serielNumber: '91 BM-051', bib: '11704', time: '3:12:28' },
-		{ name: 'Du, Hank', desc: '', nickName: '', img: '91BM-052-HankDu.jpg', year: '2023', serielNumber: '91 BM-052', bib: '14725', time: '3:26:27' },
-		{ name: 'Zhang, Annie', desc: '', nickName: '', img: '91BM-053-AnnieZhang.jpg', year: '2023', serielNumber: '91 BM-053', bib: '21639', time: '3:46:16' },
-		{ name: 'Liu, Jiajun', desc: '', nickName: '', img: '91BM-054-JiajunLiu.jpg', year: '2023', serielNumber: '91 BM-054', bib: '22757', time: '3:53:03' },
-		{ name: 'Chan, Ben', desc: '', nickName: '', img: '91BM-055-BenChan.jpg', year: '2023', serielNumber: '91 BM-055', bib: '11415', time: '4:01:47' },
-		{ name: 'Zhang, Luce', desc: '', nickName: '', img: '91BM-056-LuceZhang.jpg', year: '2023', serielNumber: '91 BM-056', bib: '23127', time: '4:03:56' },
-		{ name: 'An, Yuanyuan', desc: '', nickName: '', img: '91BM-057-YuanyuanAn.jpg', year: '2023', serielNumber: '91 BM-057', bib: '23029', time: '4:05:17' },
-		{ name: 'Yan, Helen', desc: '', nickName: '', img: '91BM-058-HelenYan.jpg', year: '2023', serielNumber: '91 BM-058', bib: '23893', time: '4:19:54' }		
+        { name: 'Hung, Clarence', desc: '', nickName: '', img: '91BM-047-ClarenceHung.jpg', year: '2023', serielNumber: '91 BM-047', bib: '495', time: '2:51:02' },
+        { name: 'Guo, Benson', desc: '', nickName: '', img: '91BM-048-BensonGuo.jpg', year: '2023', serielNumber: '91 BM-048', bib: '3438', time: '2:51:48' },
+        { name: 'Zhao, Allen', desc: '', nickName: '', img: '91BM-049-AllenZhao.jpg', year: '2023', serielNumber: '91 BM-049', bib: '8577', time: '2:57:32' },
+        { name: 'Yu, Jim', desc: '', nickName: '', img: '91BM-050-JimYu.jpg', year: '2023', serielNumber: '91 BM-050', bib: '10793', time: '3:09:00' },
+        { name: 'Cai, Max', desc: '', nickName: '', img: '91BM-051-MaxCai.jpg', year: '2023', serielNumber: '91 BM-051', bib: '11704', time: '3:12:28' },
+        { name: 'Du, Hank', desc: '', nickName: '', img: '91BM-052-HankDu.jpg', year: '2023', serielNumber: '91 BM-052', bib: '14725', time: '3:26:27' },
+        { name: 'Zhang, Annie', desc: '', nickName: '', img: '91BM-053-AnnieZhang.jpg', year: '2023', serielNumber: '91 BM-053', bib: '21639', time: '3:46:16' },
+        { name: 'Liu, Jiajun', desc: '', nickName: '', img: '91BM-054-JiajunLiu.jpg', year: '2023', serielNumber: '91 BM-054', bib: '22757', time: '3:53:03' },
+        { name: 'Chan, Ben', desc: '', nickName: '', img: '91BM-055-BenChan.jpg', year: '2023', serielNumber: '91 BM-055', bib: '11415', time: '4:01:47' },
+        { name: 'Zhang, Luce', desc: '', nickName: '', img: '91BM-056-LuceZhang.jpg', year: '2023', serielNumber: '91 BM-056', bib: '23127', time: '4:03:56' },
+        { name: 'An, Yuanyuan', desc: '', nickName: '', img: '91BM-057-YuanyuanAn.jpg', year: '2023', serielNumber: '91 BM-057', bib: '23029', time: '4:05:17' },
+        { name: 'Yan, Helen', desc: '', nickName: '', img: '91BM-058-HelenYan.jpg', year: '2023', serielNumber: '91 BM-058', bib: '23893', time: '4:19:54' }
       ]
     }
   },
