@@ -77,7 +77,7 @@ Nothing is impossible！Trust me！You can do it!`],
 `Everyone can run – start from small and aim big – Boston Marathon is reachable by everyone.
 Enjoy nature by running  – join us in trail running – UTMB final can be a dream for us.`],
           nickName: 'Tina',
-          src: 'tina.jpg',
+          src: 'tina_wang.jpg',
           bio: ['Trained for Marathon 8 years and Ultra Marathon 2 years',
             'Official PR in Marathon is 3:29:34 (Muskoka Marathon 2020)',
             '100km Ultra finisher (Canyon Endurance Race 2023)',
