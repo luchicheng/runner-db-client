@@ -17,7 +17,7 @@
         <StarProfile :star="s"/>
       </v-flex>
       <v-flex
-        v-for="n in 64-stars.length"
+        v-for="n in 74-stars.length"
         :key="six_stars.length+n+stars.length" md2
       >
         <StarProfile/>
