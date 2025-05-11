@@ -12,7 +12,7 @@
         <StarProfile :star="s"/>
       </v-flex>
       <v-flex
-        v-for="n in 74-stars.length"
+        v-for="n in 82-stars.length"
         :key="six_stars.length+n+stars.length" md2
       >
         <StarProfile/>
@@ -30,6 +30,9 @@ export default {
       six_stars: [
       ],
       stars: [
+        { name: 'Guoxiang Wang', desc: '', nickName: '', img: 'guoxiangwang.jpg', year: '2015', serielNumber: ' ', bib: '11157', time: '3:28:31' },
+        { name: 'Wei Zhang', desc: '', nickName: '', img: 'wei.jpg', year: '2017', serielNumber: ' ', bib: '3059', time: '3:01:02' },
+        { name: 'Qifeng Weng', desc: '', nickName: '', img: 'rico_star.jpg', year: '2017', serielNumber: ' ', bib: '6447', time: '3:08:41' },
         { name: 'Luchi Cheng', desc: '', nickName: '', img: 'luchi.jpg', year: '2019', serielNumber: '91 BM-001', bib: '2319', time: '2:53:21' },
         { name: 'Jun Zhang', desc: '', nickName: '', img: 'jun_star.jpg', year: '2019', serielNumber: '91 BM-002', bib: '4973', time: '2:59:30' },
         { name: 'Rocky Lu', desc: '', nickName: '', img: 'rocky.jpg', year: '2019', serielNumber: '91 BM-003', bib: '7418', time: '3:13:50' },

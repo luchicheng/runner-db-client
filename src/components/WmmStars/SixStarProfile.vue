@@ -5,16 +5,19 @@
     max-height="500"
   >
     <template v-slot:activator="{ on, attrs }">
-      <v-btn
-        class="fa-star"
-        icon
-        x-large
-        :disabled="isStarDisabled()"
-        v-bind="attrs"
-        v-on="on"
-      >
-        <v-img max-height="60" max-width="60" :src="getImgUrl('six_star.png')"></v-img>
-      </v-btn>
+      <div class="profile-container">
+        <v-btn
+          class="fa-star"
+          icon
+          x-large
+          :disabled="isStarDisabled()"
+          v-bind="attrs"
+          v-on="on"
+        >
+          <v-img max-height="60" max-width="60" :src="getImgUrl('six_star.png')"></v-img>
+        </v-btn>
+        <div class="runner-name">{{ star.name }}</div>
+      </div>
     </template>
     <template v-slot:default="">
       <v-card
@@ -106,5 +109,24 @@ export default {
 .fa-star:hover {
   color: #1b2afb;
   transform: translateY(-5px);
+}
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px;
+  width: 80px;
+}
+.runner-name {
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 0px;
+  width: 100%;
+  line-height: 1.2;
+  word-break: break-word;
+  text-shadow: 0 0 2px #1b2afb;
+  letter-spacing: normal !important;
 }
 </style>

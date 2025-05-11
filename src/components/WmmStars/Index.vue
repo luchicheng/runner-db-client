@@ -25,12 +25,12 @@ export default {
       six_stars: [
         { name: 'Wei Zhang', img: 'wei.jpg', year: '2017', boston_year: '2017', chi_year: '2016', nyc_year: '2016', berlin_year: '2017', london_year: '2017', tokyo_year: '2017' },
         { name: 'Qifeng Weng', img: 'rico_star.jpg', year: '2018', boston_year: '2017', chi_year: '2016', nyc_year: '2017', berlin_year: '2017', london_year: '2017', tokyo_year: '2018' },
+        { name: 'Quan Jiang', year: '2023', boston_year: '2022', chi_year: '2022', nyc_year: '2022', berlin_year: '2022', london_year: '2022', tokyo_year: '2023', wmmImages: ['quan_jiang.jpg', 'quan_jiang_2.jpg'] },
         { name: 'Yi Xiao', year: '2023', boston_year: '2019', chi_year: '2018', nyc_year: '2018', berlin_year: '2019', london_year: '2021', tokyo_year: '2023', wmmImages: ['yi_xiao.jpg'] },
         { name: 'Kevin Tan', img: 'kt.jpg', year: '2023', boston_year: '2019', chi_year: '2018', nyc_year: '2018', berlin_year: '2019', london_year: '2021', tokyo_year: '2023' },
         { name: 'Guoping Yang', year: '2023', boston_year: '2022', chi_year: '2018', nyc_year: '2019', berlin_year: '2022', london_year: '2023', tokyo_year: '2023', wmmImages: ['guoping_yang.jpg'] },
         { name: 'Dingshan Xiao', img: 'daniel.jpg', year: '2023', boston_year: '2021', chi_year: '2019', nyc_year: '2021', berlin_year: '2019', london_year: '2022', tokyo_year: '2023' },
         { name: 'Xiangui Zeng', img: 'laurel.jpg', year: '2023', boston_year: '2021', chi_year: '2019', nyc_year: '2021', berlin_year: '2019', london_year: '2022', tokyo_year: '2023' },
-        { name: 'Quan Jiang', year: '2023', boston_year: '2022', chi_year: '2022', nyc_year: '2022', berlin_year: '2022', london_year: '2022', tokyo_year: '2023', wmmImages: ['quan_jiang.jpg', 'quan_jiang_2.jpg'] },
         { name: 'Fu Nu Xin', year: '2023', boston_year: '2022', chi_year: '2022', nyc_year: '2022', berlin_year: '2022', london_year: '2022', tokyo_year: '2023', wmmImages: ['nuxin_fu.jpg'] },
         { name: 'Congcong Yu', img: 'carol.jpg', year: '2023', boston_year: '2019', chi_year: '2019', nyc_year: '2021', berlin_year: '2021', london_year: '2021', tokyo_year: '2023' },
         { name: 'Derek Lai', year: '2023', boston_year: '2022', chi_year: '2022', nyc_year: '2022', berlin_year: '2023', london_year: '2023', tokyo_year: '2023', wmmImages: ['derek_lai.jpg'] },
@@ -41,11 +41,11 @@ export default {
         { name: 'Yue Zhang', year: '2023', boston_year: '2022', chi_year: '2022', nyc_year: '2023', berlin_year: '2024', london_year: '2023', tokyo_year: '2023', wmmImages: ['yue_zhang.jpg', 'yue_zhang_2.jpg'] },
         { name: 'Ping Chen', year: '2023', boston_year: '2022', chi_year: '2022', nyc_year: '2023', berlin_year: '2024', london_year: '2024', tokyo_year: '2023', wmmImages: ['ping_chen.jpg'] },
         { name: 'Yuanyuan An', img: '91BM-057-YuanyuanAn.jpg', year: '2024', boston_year: '2023', chi_year: '2023', nyc_year: '2024', berlin_year: '2024', london_year: '2024', tokyo_year: '2023' },
-        { name: 'Guoxiang Wang', year: '2025', boston_year: '2015', chi_year: '2019', nyc_year: '2019', berlin_year: '2024', london_year: '2025', tokyo_year: '2015', wmmImages: ['guoxiang_wang.jpg', 'guoxiang_wang_cert.jpg'] },
         { name: 'Bill Huang', img: 'bill.jpg', year: '2025', boston_year: '2021', chi_year: '2019', nyc_year: '2018', berlin_year: '2024', london_year: '2019', tokyo_year: '2025' },
         { name: 'Lipeng Zeng', img: '91BM-033-LipengZeng.jpg', year: '2025', boston_year: '2022', chi_year: '2022', nyc_year: '2023', berlin_year: '2023', london_year: '2023', tokyo_year: '2025' },
         { name: 'Jing Cao', img: '91BM-032-JingCao.jpg', year: '2025', boston_year: '2022', chi_year: '2022', nyc_year: '2023', berlin_year: '2023', london_year: '2023', tokyo_year: '2025' },
         { name: 'Yuehui Zhang', year: '2025', boston_year: '2024', chi_year: '2024', nyc_year: '2024', berlin_year: '2024', london_year: '2024', tokyo_year: '2025', wmmImages: ['yuehui_zhang.jpg'] },
+        { name: 'Guoxiang Wang', year: '2025', boston_year: '2015', chi_year: '2019', nyc_year: '2019', berlin_year: '2024', london_year: '2025', tokyo_year: '2015', wmmImages: ['guoxiang_wang.jpg', 'guoxiang_wang_cert.jpg'] },
         { name: 'Mike Wan', img: 'six_star.png', year: '2024', boston_year: '2023', chi_year: '2022', nyc_year: '2023', berlin_year: '2022', london_year: '2022', tokyo_year: '2022' },
         { name: 'Steven Chiu', img: 'six_star.png', year: '2025', boston_year: '2025', chi_year: '2023', nyc_year: '2024', berlin_year: '2024', london_year: '2025', tokyo_year: '2025' }
       ]
