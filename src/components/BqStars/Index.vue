@@ -94,7 +94,15 @@ export default {
         { name: 'Tsui, Stephen', desc: '', nickName: '', img: '91BM-062-StephenTsui.jpg', year: '2024', serielNumber: '91 BM-062', bib: '10234', time: '3:31:57' },
         { name: 'Chen, Jinhai', desc: '', nickName: '', img: '91BM-063-JinhaiChen.jpg', year: '2024', serielNumber: '91 BM-063', bib: '17249', time: '3:41:07' },
         { name: 'Wei, Martin', desc: '', nickName: '', img: '91BM-064-MartinWei.jpg', year: '2024', serielNumber: '91 BM-064', bib: '18027', time: '3:47:28' },
-        { name: 'Sun, Jing', desc: '', nickName: '', img: '91BM-065-JingSun.jpg', year: '2024', serielNumber: '91 BM-065', bib: '20711', time: '3:55:16' }
+        { name: 'Sun, Jing', desc: '', nickName: '', img: '91BM-065-JingSun.jpg', year: '2024', serielNumber: '91 BM-065', bib: '20711', time: '3:55:16' },
+        { name: 'Zhang, Mengyuxin', desc: '', nickName: '', img: '91BM-066-Norwin.jpg', year: '2025', serielNumber: '91 BM-066', bib: '4064', time: '2:41:17' },
+        { name: 'Zhang, Guanghui', desc: '', nickName: '', img: '91BM-067-Gavin.jpg', year: '2025', serielNumber: '91 BM-067', bib: '7378', time: '3:11:05' },
+        { name: 'Liu, Zhu', desc: '', nickName: '', img: '91BM-068-LiuZhu.jpg', year: '2025', serielNumber: '91 BM-068', bib: '17971', time: '3:24:27' },
+        { name: 'Zhang, Zhiming', desc: '', nickName: '', img: '91BM-069-JackZhang.jpg', year: '2025', serielNumber: '91 BM-069', bib: '18019', time: '3:41:51' },
+        { name: 'Xu, Miao', desc: '', nickName: '', img: '91BM-070-Morgan.jpg', year: '2025', serielNumber: '91 BM-070', bib: '13704', time: '4:07:37' },
+        { name: 'Hu, QiongLi', desc: '', nickName: '', img: '91BM-071-Li.jpg', year: '2025', serielNumber: '91 BM-071', bib: '24911', time: '4:11:47' },
+        { name: 'Chen, Kai', desc: '', nickName: '', img: '91BM-072-Kitty.jpg', year: '2025', serielNumber: '91 BM-072', bib: '22340', time: '4:23:53' },
+        { name: 'Cai, Shaoping', desc: '', nickName: '', img: '91BM-073-GuanGuan.jpg', year: '2025', serielNumber: '91 BM-073', bib: '25262', time: '4:38:59' }
       ]
     }
   },
