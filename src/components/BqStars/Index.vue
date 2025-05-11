@@ -2,15 +2,10 @@
   <v-container class="back" grid-list-md text-md-center fluid fill-height>
     <v-layout row>
       <v-flex>
-        <p class="white--text align-end">Hall of Fame - Abbott World Marathon Majors finisher and Boston Marathon finisher</p>
+        <p class="white--text align-end">Hall of Fame - Boston Marathon finisher</p>
       </v-flex>
     </v-layout>
     <v-layout row>
-      <v-flex v-for="(six, index) in six_stars"
-        :key="index" md2
-      >
-        <SixStarProfile :star="six"/>
-      </v-flex>
       <v-flex v-for="(s, index) in stars"
         :key="six_stars.length+index" md2
       >
@@ -28,22 +23,11 @@
 
 <script>
 import StarProfile from './StarProfile'
-import SixStarProfile from './SixStarProfile'
 
 export default {
   data () {
     return {
       six_stars: [
-        { name: 'Wei Zhang', desc: '', nickName: '', img: 'wei.jpg', year: '2017', tokyo_year: '2017', berlin_year: '2016', london_year: '2017', chi_year: '2016', boston_year: '2017', nyc_year: '2017' },
-        { name: 'Rico Weng', desc: '', nickName: '', img: 'rico_star.jpg', year: '2018', tokyo_year: '2018', berlin_year: '2017', london_year: '2017', chi_year: '2016', boston_year: '2017', nyc_year: '2017' },
-        { name: 'Daniel Xiao', desc: '', nickName: '', img: 'daniel.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2022', chi_year: '2019', boston_year: '2021', nyc_year: '2021' },
-        { name: 'Laurel Zeng', desc: '', nickName: '', img: 'laurel.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2022', chi_year: '2019', boston_year: '2021', nyc_year: '2021' },
-        { name: 'Carol Yu', desc: '', nickName: '', img: 'carol.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2021', london_year: '2021', chi_year: '2019', boston_year: '2019', nyc_year: '2021' },
-        { name: 'Quan Jiang', desc: '', nickName: '', img: '91BM-023-QuanJiang.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2022', london_year: '2022', chi_year: '2022', boston_year: '2022', nyc_year: '2022' },
-        { name: 'Fu Nu Xin', desc: '', nickName: '', img: '91BM-038-FunuXin.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2022', london_year: '2022', chi_year: '2022', boston_year: '2022', nyc_year: '2022' },
-        { name: 'Steve Yang', desc: '', nickName: '', img: '91BM-020-GuopingYang.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2022', london_year: '2023', chi_year: '2018', boston_year: '2022', nyc_year: '2019' },
-        { name: 'Yi Xiao', desc: '', nickName: '', img: 'yi.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2021', chi_year: '2018', boston_year: '2019', nyc_year: '2018' },
-        { name: 'Kevin Tan', desc: '', nickName: '', img: 'kt.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2021', chi_year: '2018', boston_year: '2019', nyc_year: '2018' }
       ],
       stars: [
         { name: 'Luchi Cheng', desc: '', nickName: '', img: 'luchi.jpg', year: '2019', serielNumber: '91 BM-001', bib: '2319', time: '2:53:21' },
@@ -117,7 +101,7 @@ export default {
   async mounted () {
   },
   components: {
-    StarProfile, SixStarProfile
+    StarProfile
   }
 }
 </script>

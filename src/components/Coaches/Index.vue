@@ -64,18 +64,7 @@ Nothing is impossible！Trust me！You can do it!`],
           bio: ['2019 New York Marathon PR 2:50:41',
             '2020 VDOT Certified Coach'] },
         { name: 'Tina Wang',
-          desc: [`A Marathon and Ultra Marathon Runner. `,
-
-`Practiced Advanced Marathoning and Jack Daniel’s training plan for Marathon Races. Self guided and trained on the Ultra Marathon races.`,
-
-`I am a believer in scientific training. Personalized training plans and training diversities can benefit performance improvement consistently.`,
-
-`I've learned from books, my own and running buddies’ experience. I love sharing what I have learned and willing to help others be healthy, fitness and exploring the fun of running.`,
-
-`I believe training can be enjoyable and rewarding, however the hard and frustrating ingredients are part of the journey as well. It is always good that someone is with you when those hard times come. It will enrich our life experience and help us develop traits, and reward friendship over time.`,
-
-`Everyone can run – start from small and aim big – Boston Marathon is reachable by everyone.
-Enjoy nature by running  – join us in trail running – UTMB final can be a dream for us.`],
+          desc: [`A Marathon and Ultra Marathon Runner. `, `Practiced Advanced Marathoning and Jack Daniel’s training plan for Marathon Races. Self guided and trained on the Ultra Marathon races.`, `I am a believer in scientific training. Personalized training plans and training diversities can benefit performance improvement consistently.`, `I've learned from books, my own and running buddies’ experience. I love sharing what I have learned and willing to help others be healthy, fitness and exploring the fun of running.`, `I believe training can be enjoyable and rewarding, however the hard and frustrating ingredients are part of the journey as well. It is always good that someone is with you when those hard times come. It will enrich our life experience and help us develop traits, and reward friendship over time.`, `Everyone can run – start from small and aim big – Boston Marathon is reachable by everyone.  Enjoy nature by running  – join us in trail running – UTMB final can be a dream for us.`],
           nickName: 'Tina',
           src: 'tina_wang.jpg',
           bio: ['Trained for Marathon 8 years and Ultra Marathon 2 years',
