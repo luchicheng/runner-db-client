@@ -185,6 +185,7 @@ export default {
       { title: 'Photos', name: 'albums' },
       { title: 'Videos', name: 'videos' },
       { title: 'Coaches', name: 'coaches' },
+      { title: 'World Major Marathon', name: 'wmm' },
       { title: 'Hall of Fame', name: 'halloffame' }
     ],
     dataItems: [
@@ -221,6 +222,7 @@ export default {
           { title: 'Photos', name: 'albums', enabled: true },
           { title: 'Video', name: 'videos', enabled: true },
           { title: 'Coaches', name: 'coaches', enabled: true },
+          { title: 'World Major Marathon', name: 'wnn', enabled: true },
           { title: 'Hall of Fame', name: 'halloffame', enabled: true }
         ]
       },

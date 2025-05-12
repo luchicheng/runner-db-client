@@ -2,22 +2,17 @@
   <v-container class="back" grid-list-md text-md-center fluid fill-height>
     <v-layout row>
       <v-flex>
-        <p class="white--text align-end">Hall of Fame - Abbott World Marathon Majors finisher and Boston Marathon finisher</p>
+        <p class="white--text align-end">Hall of Fame - Boston Marathon finisher</p>
       </v-flex>
     </v-layout>
     <v-layout row>
-      <v-flex v-for="(six, index) in six_stars"
-        :key="index" md2
-      >
-        <SixStarProfile :star="six"/>
-      </v-flex>
       <v-flex v-for="(s, index) in stars"
         :key="six_stars.length+index" md2
       >
         <StarProfile :star="s"/>
       </v-flex>
       <v-flex
-        v-for="n in 74-stars.length"
+        v-for="n in 82-stars.length"
         :key="six_stars.length+n+stars.length" md2
       >
         <StarProfile/>
@@ -28,24 +23,16 @@
 
 <script>
 import StarProfile from './StarProfile'
-import SixStarProfile from './SixStarProfile'
 
 export default {
   data () {
     return {
       six_stars: [
-        { name: 'Wei Zhang', desc: '', nickName: '', img: 'wei.jpg', year: '2017', tokyo_year: '2017', berlin_year: '2016', london_year: '2017', chi_year: '2016', boston_year: '2017', nyc_year: '2017' },
-        { name: 'Rico Weng', desc: '', nickName: '', img: 'rico_star.jpg', year: '2018', tokyo_year: '2018', berlin_year: '2017', london_year: '2017', chi_year: '2016', boston_year: '2017', nyc_year: '2017' },
-        { name: 'Daniel Xiao', desc: '', nickName: '', img: 'daniel.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2022', chi_year: '2019', boston_year: '2021', nyc_year: '2021' },
-        { name: 'Laurel Zeng', desc: '', nickName: '', img: 'laurel.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2022', chi_year: '2019', boston_year: '2021', nyc_year: '2021' },
-        { name: 'Carol Yu', desc: '', nickName: '', img: 'carol.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2021', london_year: '2021', chi_year: '2019', boston_year: '2019', nyc_year: '2021' },
-        { name: 'Quan Jiang', desc: '', nickName: '', img: '91BM-023-QuanJiang.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2022', london_year: '2022', chi_year: '2022', boston_year: '2022', nyc_year: '2022' },
-        { name: 'Fu Nu Xin', desc: '', nickName: '', img: '91BM-038-FunuXin.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2022', london_year: '2022', chi_year: '2022', boston_year: '2022', nyc_year: '2022' },
-        { name: 'Steve Yang', desc: '', nickName: '', img: '91BM-020-GuopingYang.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2022', london_year: '2023', chi_year: '2018', boston_year: '2022', nyc_year: '2019' },
-        { name: 'Yi Xiao', desc: '', nickName: '', img: 'yi.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2021', chi_year: '2018', boston_year: '2019', nyc_year: '2018' },
-        { name: 'Kevin Tan', desc: '', nickName: '', img: 'kt.jpg', year: '2023', tokyo_year: '2023', berlin_year: '2019', london_year: '2021', chi_year: '2018', boston_year: '2019', nyc_year: '2018' }
       ],
       stars: [
+        { name: 'Guoxiang Wang', desc: '', nickName: '', img: 'guoxiangwang.jpg', year: '2015', serielNumber: ' ', bib: '11157', time: '3:28:31' },
+        { name: 'Wei Zhang', desc: '', nickName: '', img: 'wei.jpg', year: '2017', serielNumber: ' ', bib: '3059', time: '3:01:02' },
+        { name: 'Qifeng Weng', desc: '', nickName: '', img: 'rico_star.jpg', year: '2017', serielNumber: ' ', bib: '6447', time: '3:08:41' },
         { name: 'Luchi Cheng', desc: '', nickName: '', img: 'luchi.jpg', year: '2019', serielNumber: '91 BM-001', bib: '2319', time: '2:53:21' },
         { name: 'Jun Zhang', desc: '', nickName: '', img: 'jun_star.jpg', year: '2019', serielNumber: '91 BM-002', bib: '4973', time: '2:59:30' },
         { name: 'Rocky Lu', desc: '', nickName: '', img: 'rocky.jpg', year: '2019', serielNumber: '91 BM-003', bib: '7418', time: '3:13:50' },
@@ -110,14 +97,22 @@ export default {
         { name: 'Tsui, Stephen', desc: '', nickName: '', img: '91BM-062-StephenTsui.jpg', year: '2024', serielNumber: '91 BM-062', bib: '10234', time: '3:31:57' },
         { name: 'Chen, Jinhai', desc: '', nickName: '', img: '91BM-063-JinhaiChen.jpg', year: '2024', serielNumber: '91 BM-063', bib: '17249', time: '3:41:07' },
         { name: 'Wei, Martin', desc: '', nickName: '', img: '91BM-064-MartinWei.jpg', year: '2024', serielNumber: '91 BM-064', bib: '18027', time: '3:47:28' },
-        { name: 'Sun, Jing', desc: '', nickName: '', img: '91BM-065-JingSun.jpg', year: '2024', serielNumber: '91 BM-065', bib: '20711', time: '3:55:16' }
+        { name: 'Sun, Jing', desc: '', nickName: '', img: '91BM-065-JingSun.jpg', year: '2024', serielNumber: '91 BM-065', bib: '20711', time: '3:55:16' },
+        { name: 'Zhang, Mengyuxin', desc: '', nickName: '', img: '91BM-066-Norwin.jpg', year: '2025', serielNumber: '91 BM-066', bib: '4064', time: '2:41:17' },
+        { name: 'Zhang, Guanghui', desc: '', nickName: '', img: '91BM-067-Gavin.jpg', year: '2025', serielNumber: '91 BM-067', bib: '7378', time: '3:11:05' },
+        { name: 'Liu, Zhu', desc: '', nickName: '', img: '91BM-068-LiuZhu.jpg', year: '2025', serielNumber: '91 BM-068', bib: '17971', time: '3:24:27' },
+        { name: 'Zhang, Zhiming', desc: '', nickName: '', img: '91BM-069-JackZhang.jpg', year: '2025', serielNumber: '91 BM-069', bib: '18019', time: '3:41:51' },
+        { name: 'Xu, Miao', desc: '', nickName: '', img: '91BM-070-Morgan.jpg', year: '2025', serielNumber: '91 BM-070', bib: '13704', time: '4:07:37' },
+        { name: 'Hu, QiongLi', desc: '', nickName: '', img: '91BM-071-Li.jpg', year: '2025', serielNumber: '91 BM-071', bib: '24911', time: '4:11:47' },
+        { name: 'Chen, Kai', desc: '', nickName: '', img: '91BM-072-Kitty.jpg', year: '2025', serielNumber: '91 BM-072', bib: '22340', time: '4:23:53' },
+        { name: 'Cai, Shaoping', desc: '', nickName: '', img: '91BM-073-GuanGuan.jpg', year: '2025', serielNumber: '91 BM-073', bib: '25262', time: '4:38:59' }
       ]
     }
   },
   async mounted () {
   },
   components: {
-    StarProfile, SixStarProfile
+    StarProfile
   }
 }
 </script>
