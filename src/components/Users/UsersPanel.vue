@@ -18,7 +18,7 @@
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="700px">
               <template v-slot:activator="{ on }">
-                <v-btn color="primary" dark class="mb-2" v-on="on">New Member</v-btn>
+                <v-btn color="primary" dark class="mb-2" @click="openNewMemberDialog" v-on="on">New Member</v-btn>
               </template>
               <v-form
                 ref="form"
@@ -31,11 +31,41 @@
                 <v-card-text>
                   <v-container>
                     <v-row>
+                      <v-col cols="12" sm="6" md="4" v-if="editedIndex !== -1">
+                        <v-text-field ref="id" v-model="editedItem.id"
+                          readonly
+                          label="Member ID"
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12" sm="6" md="4">
+                        <v-menu
+                          ref="menuRegisterDate"
+                          v-model="menuRegisterDate"
+                          :close-on-content-click="false"
+                          transition="scale-transition"
+                          offset-y
+                          min-width="290px"
+                        >
+                          <template v-slot:activator="{ on }">
+                            <v-text-field
+                              v-model="editedItem.registerDate"
+                              label="Register Date"
+                              readonly
+                              v-on="on"
+                            ></v-text-field>
+                          </template>
+                          <v-date-picker
+                            ref="pickerRegisterDate"
+                            v-model="editedItem.registerDate"
+                            @change="save_registerDate"
+                          ></v-date-picker>
+                        </v-menu>
+                      </v-col>
                       <v-col cols="12" sm="6" md="4">
                         <v-text-field ref="email" v-model="editedItem.email"
                           required
                           :rules="[ v => !!v || 'This field is required']"
-                          label="Member ID"
+                          label="Login ID"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">
@@ -152,7 +182,8 @@ export default {
   data () {
     return {
       headers: [
-        { text: 'ID', value: 'email' },
+        { text: 'ID', value: 'id' },
+        { text: 'Login Name', value: 'email' },
         { text: 'User Type', value: 'userType' },
         { text: 'Register Date', value: 'registerDate' },
         { text: 'Expire Date', value: 'membershipExprireDate' },
@@ -168,6 +199,7 @@ export default {
       dialog: false,
       editedIndex: -1,
       menu: false,
+      menuRegisterDate: false,
       editedItem: {
       },
       defaultItem: {
@@ -189,8 +221,22 @@ export default {
     }
   },
   methods: {
+    openNewMemberDialog () {
+      this.editedIndex = -1
+      this.editedItem = {}
+      this.valid = false
+      this.dialog = true
+      this.$nextTick(() => {
+        if (this.$refs.form) {
+          this.$refs.form.reset()
+        }
+      })
+    },
     save_date (date) {
       this.$refs.menu.save(date)
+    },
+    save_registerDate (date) {
+      this.$refs.menuRegisterDate.save(date)
     },
     editItem (item) {
       this.editedIndex = this.users.indexOf(item)
@@ -219,16 +265,16 @@ export default {
       this.$refs.form.validate()
       if (this.valid) {
         try {
-          await UsersService.post(this.editedItem)
+          const response = await UsersService.post(this.editedItem)
           // this.$refs.form.reset()
+          if (this.editedIndex > -1) {
+            Object.assign(this.users[this.editedIndex], response.data)
+          } else {
+            this.users.push(response.data)
+          }
         } catch (err) {
           alert(err.response.data.error)
           return
-        }
-        if (this.editedIndex > -1) {
-          Object.assign(this.users[this.editedIndex], this.editedItem)
-        } else {
-          this.users.push(this.editedItem)
         }
         this.close()
       }
