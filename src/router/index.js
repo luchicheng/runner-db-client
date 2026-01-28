@@ -14,6 +14,7 @@ import Runners from '@/components/Runners/Index'
 import MyPayments from '@/components/MyPayments/Index'
 import Races from '@/components/Races/Index'
 import Users from '@/components/Users/Index'
+import Emails from '@/components/Emails/Index'
 import PasswordReset from '@/components/Users/PasswordReset'
 import MyInfo from '@/components/Users/MyInfo'
 import NewsLetter from '@/components/NewsLetter/Index'
@@ -49,6 +50,7 @@ export default new Router({
     { path: '/myPayments', name: 'myPayments', component: MyPayments },
     { path: '/races', name: 'races', component: Races },
     { path: '/members', name: 'members', component: Users },
+    { path: '/emails', name: 'emails', component: Emails },
     { path: '/shoppingMechandise', name: 'shoppingMechandise', component: Mechandise },
     { path: '/shoppingService', name: 'shoppingService', component: Service },
     { path: '/paymentSuccess', name: 'paymentSuccess', component: PaymentSuccess },

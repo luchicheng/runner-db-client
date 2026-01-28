@@ -65,7 +65,7 @@
                         <v-text-field ref="email" v-model="editedItem.email"
                           required
                           :rules="[ v => !!v || 'This field is required']"
-                          label="Login ID"
+                          label="Login Name"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="4">

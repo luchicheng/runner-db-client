@@ -79,9 +79,23 @@
           </v-list>
         </v-menu>
       </v-toolbar-items>
-      <v-toolbar-items>
-         <v-btn v-if="$store.state.user && $store.state.user.userType == 'A'" text dark :to="{ name: 'members' }"> Membership </v-btn>
-      </v-toolbar-items>
+      <v-menu v-if="$store.state.user && $store.state.user.userType == 'A'"
+        open-on-hover close-on-click close-on-content-click offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn text dark
+            v-on="on"
+          >Admin</v-btn>
+        </template>
+        <v-list>
+          <v-list-item
+            v-for="(adminItem, index_admin) in adminItems"
+            :key="index_admin"
+            @click="goto(adminItem.name)"
+          >
+            <v-list-item-title>{{ adminItem.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn v-if="!$store.state.isUserLoggedIn" text dark :to="{ name: 'login' }"> Login </v-btn>
@@ -198,6 +212,10 @@ export default {
       { title: 'Mechandise', name: 'shoppingMechandise' },
       { title: 'Payment', name: 'shoppingService' }
     ],
+    adminItems: [
+      { title: 'Membership', name: 'members' },
+      { title: 'Emails', name: 'emails' }
+    ],
     topItems: [
       { title: 'Current Year', name: 'topRaceRecordsCY' },
       { title: 'All Years', name: 'topRaceRecordsAY' }
@@ -267,6 +285,17 @@ export default {
         items: [
           { title: 'Mechandise', name: 'shoppingMechandise', enabled: true },
           { title: 'Payment', name: 'shoppingService', enabled: true }
+        ]
+      },
+      {
+        action: 'admin',
+        title: 'ADMIN',
+        active: false,
+        enabled: true,
+        login_required: true,
+        items: [
+          { title: 'Membership', name: 'members', enabled: true },
+          { title: 'Emails', name: 'emails', enabled: true }
         ]
       }
     ]
