@@ -1,13 +1,19 @@
 import Api from '@/services/Api'
 
 export default {
-  index (search, statusFilter) {
+  index (search, statusFilter, dateFrom, dateTo) {
     const params = {}
     if (search) {
       params.search = search
     }
     if (statusFilter) {
       params.statusFilter = statusFilter
+    }
+    if (dateFrom) {
+      params.dateFrom = dateFrom
+    }
+    if (dateTo) {
+      params.dateTo = dateTo
     }
     return Api().get('emailrequests', {
       params: params

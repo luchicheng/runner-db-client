@@ -176,13 +176,45 @@ export default {
     '$route.query.search': {
       immediate: true,
       async handler (value) {
-        this.emails = (await EmailsService.index(value, this.$route.query.statusFilter)).data
+        this.emails = (await EmailsService.index(
+          value,
+          this.$route.query.statusFilter,
+          this.$route.query.dateFrom,
+          this.$route.query.dateTo
+        )).data
       }
     },
     '$route.query.statusFilter': {
       immediate: true,
       async handler (value) {
-        this.emails = (await EmailsService.index(this.$route.query.search, value)).data
+        this.emails = (await EmailsService.index(
+          this.$route.query.search,
+          value,
+          this.$route.query.dateFrom,
+          this.$route.query.dateTo
+        )).data
+      }
+    },
+    '$route.query.dateFrom': {
+      immediate: true,
+      async handler (value) {
+        this.emails = (await EmailsService.index(
+          this.$route.query.search,
+          this.$route.query.statusFilter,
+          value,
+          this.$route.query.dateTo
+        )).data
+      }
+    },
+    '$route.query.dateTo': {
+      immediate: true,
+      async handler (value) {
+        this.emails = (await EmailsService.index(
+          this.$route.query.search,
+          this.$route.query.statusFilter,
+          this.$route.query.dateFrom,
+          value
+        )).data
       }
     }
   },
@@ -322,7 +354,11 @@ export default {
       this.$refs.form.validate()
       if (this.valid) {
         try {
-          const response = await EmailsService.post(this.editedItem)
+          const payload = {
+            id: this.editedItem.id,
+            status: this.editedItem.status
+          }
+          const response = await EmailsService.post(payload)
           // this.$refs.form.reset()
           if (this.editedIndex > -1) {
             Object.assign(this.emails[this.editedIndex], response.data)
